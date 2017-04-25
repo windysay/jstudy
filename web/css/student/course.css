@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+#no_data_remind{
+	padding-top:50px;
+	height:50px;
+	line-height:50px;
+}
+.course-completed .top_tool_div,
+.course-canceled .top_tool_div{
+	margin-top:20px;
+	padding-right:60px;
+}
+
+.teacher_info_basic{
+	width:220px;
+	padding:20px;
+}
+.teacher_info_basic a{
+	display:block;
+}
+.teacher_info_basic .headimg{
+	display:block;
+	width:130px;
+	height:130px;
+	border-radius:100%;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	margin:0 auto;
+}
+.teacher_info_basic .name{
+	height:50px;	
+	line-height:50px;	
+	text-align:center;
+	font-size:16px;
+}
+.teacher_info_basic .info{
+	line-height:25px;	
+	text-align:left;
+}
+
+.course_list{
+	min-height:400px;
+	margin-top:20px;
+}
+
+.course-bespeaked .remind{
+	padding-left:30px;
+	padding-top:50px;
+	color:#EF3781;
+}
+.course-class-detail .class_info{
+	width:600px;
+}
+.course-class-detail .info_div{
+	margin-top:20px;
+	padding-left:60px;
+}
+.course-class-detail .info_div .head{
+	height:50px;
+	line-height:50px;
+	width:140px;
+	text-align:right;
+	border:solid 1px #ccc;
+	padding-right:20px;
+	background:#E9EAEE;
+}
+.course-class-detail .info_div .info{
+	height:50px;
+	line-height:50px;
+	width:300px;
+	border:solid 1px #ccc;
+	padding-left:20px;
+}
+
+

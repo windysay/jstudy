@@ -1,0 +1,833 @@
+@CHARSET "UTF-8";
+
+.f_top_title {
+    line-height: 50px;
+    font-size: 21px;
+    color: #555;
+    padding-left: 5px;
+    padding-top: 10px;
+}
+.goods-index .row{
+ 
+}
+.goods-index .row>div{
+	padding:0 40px;
+}
+.goods-index .row>div .block{
+	border:solid 1px #ccc;
+	padding:0;
+}
+.goods-index .row>div .block>div{
+	padding:0;
+}
+.goods-index .row>div .block .left{
+	border-right:solid 1px #ccc;
+	text-align:center;
+	font-weight:bold;
+	height:100px;
+	line-height:50px;
+	padding:0 10px;
+}
+.goods-index .row>div .block .right{
+	padding-left:30px;
+	height:100px;
+	line-height:50px;
+}
+/*--  goods-freight-template  "运费模板"  zcx 2015-3-14    */
+.goods-freight-template .freight_template_all .per_template{
+	border:solid 1px #eee;
+	padding:10px 10px 0 10px;
+	margin-bottom:20px;
+	box-shadow:1px 2px 2px #eee;
+}
+.goods-freight-template .freight_template_all .per_template .per_template_head{
+	padding-bottom:10px;
+	border-bottom:solid 1px #cccccc;
+}
+.goods-freight-template .freight_template_all .per_template .per_template_head .template_name{
+	font-size:15px;
+	font-weight:bold;
+}
+.goods-freight-template .freight_template_all .per_template .per_template_head .delivery_time{
+	margin-left:20px;
+}
+.goods-freight-template .freight_template_all .per_template .per_template_head .operate_btn{
+	font-size:12px;
+	color:#444444;
+	margin:-3px 15px;
+	cursor:pointer;
+	border-bottom:solid 1px #ccc;
+	border-right:solid 1px #ccc;
+	padding:5px;
+}
+.goods-freight-template .freight_template_all .per_template .per_template_head .operate_btn:hover{
+	border:solid 1px #ccc;
+}
+.goods-freight-template .freight_template_all .per_template .table th{
+	color:#444444;
+	font-size:12px;
+}
+.goods-freight-template .freight_template_all .per_template .table{
+	margin-bottom:0;
+}
+.goods-freight-template .freight_template_all .per_template .table .operate_column .btn{
+	height:25px;
+	line-height:25px;
+	width:25px;
+	font-size:12px;
+	padding:0;
+	border-width:0;
+	color:#555555;
+}
+.goods-freight-template .freight_template_all .per_template .table .logistics_type{
+	width:100px;
+}
+.goods-freight-template .freight_template_all .per_template .table .delivery_address{
+	width:180px;
+}
+.goods-freight-template .freight_template_all .per_template .table .to_area{
+	width:250px;
+	max-height:110px;
+	overflow:hidden;
+	word-break:break-all;
+}
+.goods-freight-template .freight_template_all .per_template .table .to_area .show_per_province{
+	display:inline;
+	word-break:break-all;
+}
+.goods-freight-template .freight_template_all .per_template .table .express_start,
+.goods-freight-template .freight_template_all .per_template .table .express_postage,
+.goods-freight-template .freight_template_all .per_template .table .express_plus{
+	width:85px;
+}
+.goods-freight-template .freight_template_all .per_template .table .operate_column{
+	width:100px;
+}
+.freight-template-info-form #freighttemplateinfo-area{
+	width:500px;
+	margin-bottom:20px;
+}
+.freight-template-info-form .show_address {
+	position: absolute;
+	margin-top: -54px;
+	margin-left: 130px;
+	width:500px;
+	min-height:120px;
+	z-index: 999;
+	background:#fff;
+	padding:5px;
+	border:solid 1px #ccc;
+}
+.freight-template-info-form .show_address .edit_btn{
+	display:inline;
+	margin-left:20px;
+	cursor:pointer;
+	width:20px;
+	height:20px;
+	line-height:20px;
+	padding-bottom:2px;
+	margin:0;
+	border-left:solid 0 #bbb;
+	border-top:solid 0 #bbb;
+	border-bottom:solid 1px #bbb;
+	border-right:solid 1px #bbb;
+	background:#fff;
+}
+.freight-template-info-form .show_address .edit_btn:hover{
+	background:#ddd;
+}
+.freight-template-info-form .modal-body{
+	padding:0 10px;
+}
+.checked_area_list{
+	display:inline;
+	width:100%;
+	margin-bottom:10px;
+	line-height:25px;
+	word-break:break-all;
+}
+.checked_area_list .show_front{
+	margin-right:5px;
+}
+.checked_area_list .show_per_province{
+	margin-right:5px;
+	display:inline;
+	word-break:break-all;
+}
+.modal-body{
+	padding:10px;
+}
+.modal-body .check_div{
+	border-top:solid 1px #ddd;
+	margin-top:10px;
+}
+.modal-body .provinces{
+	height:350px;
+	width:180px;
+	margin:0;
+	padding-top:5px;
+	padding-left:20px;
+	overflow-y:scroll;
+}
+.modal-body .provinces .provinces_list li{
+	cursor:pointer;
+	padding-left:10px;
+	line-height:25px;
+}
+.modal-body .provinces .provinces_list li:hover{
+	background:#ccc;
+}
+.modal-body .cities{
+	height:350px;
+	width:370px;
+	margin:0;
+	padding-left:20px;
+	overflow-y:scroll;
+}
+.modal-body .cities .per_city{
+	height:25px;
+	line-height:25px;
+	color:#555555;
+}
+.modal-body .cities .per_city .type_checkbox{
+	margin-top:6px;
+}
+.modal-body .cities .per_city:hover{
+	background:#ccc;
+}
+#modal-footer{
+	border-top:solid 1px #ddd;
+}
+/*-- end goods-freight-template  "运费模板"  zcx 2015-3-14    */
+
+
+/*--  all-goods  "所有商品"   zcx 2015-03-24     */
+	.goods-all-goods .fenye_main{
+		width:100%;
+	}
+	.table_list {
+		width:100%;
+		border-collapse:collapse;  /*边框重叠*/
+		table-layout: fixed; /*固定列宽*/
+		word-break:break-all ; /*文字自动换行*/
+	}
+	.table_list tr{
+		border:1px solid #ccc;
+	}
+	.table_list  .separate_row{
+		height:20px;
+		border-width:0;
+		background:#fff;
+	}
+	.table_list  .table-th {
+		border:1px solid #ccc;
+		background:#E8EDF2;
+		color:#333;
+		height:40px;
+	} 
+	.table_list  .table-th th{
+		text-align:center;
+		font-weight:700;
+	} 
+	.table_list .table_info{
+		height:30px;
+		line-height:30px;
+		background:#F1F2F2;
+	}
+	.table_list .table_info p{
+		margin:0 10px;
+		height:30px;
+		line-height:30px;
+	}
+	.table_list .table_info p>span{
+		font-weight:400;
+	}
+	.table_list .table_info p a{
+		color:#444444;
+	}
+	.table_list .table_info .operate{
+		font-size: 12px;
+		color: #444444;
+		height:24px;
+		line-height:24px;
+		margin: 3px 15px;
+		cursor: pointer;
+		border-bottom: solid 1px #ccc;
+		border-right: solid 1px #ccc;
+		padding:2px  4px;
+	}
+	.table_list .table_info .operate:hover{
+		border: solid 1px #ccc;
+	}
+	.table_list .table_content{
+		height:110px;
+	}
+	.table_list .table_content td{
+		padding:0 10px;
+		text-align:center;
+		border-left:solid 1px #ccc;
+		border-right:solid 1px #ccc;
+	}
+	.table_list .table_content .goods_thumb>img{
+		max-width:100%;
+		max-height:100px;
+	}
+	.table_list .table_content .price{
+		color:#FF9933;
+		font-size:16px;
+	}
+	.table_list .table_content .promotion_price{
+		color:red;
+		font-size:16px;
+	}
+	.table_list .table_content .name,.table_list .table_content .cust_message{
+		text-align:left;
+	}
+	.table_list .table_content .name,.table_list .table_content .comment a{
+		color:#333333;
+	}
+	
+/*-- end  "所有商品"  表格內容      zcx 2015-03-24    */
+
+
+/*--    商品表单页面 goods-form   页面     zcx 2015-03-24     */
+	.goods-form .choose-goods_business .show-goods_business{
+		float: left;
+	    display: block;
+	  height: 35px;
+	  line-height: 35px;
+	  max-width: 750px;
+	  margin-left: 30px;
+	}
+	.goods-form .choose-goods_business .show-goods_business>a{
+	  margin-left: 15px;
+	}
+	.goods-form .choose-goods_business #help-block{
+		width:750px;
+	   line-height: 35px;
+	   margin-left: 130px;
+	}
+
+.goods-form .business_all .block{
+	width:235px;
+	padding:5px;	
+	border:solid 1px #ddd;
+}
+.goods-form .business_all .block .input-group{
+	width:205px;
+	margin-bottom:10px;
+}
+
+.goods-form .business_all .block input.form-control{
+  border-right-width:0;
+  border-color:#ddd;
+  width:185px;
+  margin:0;
+}
+.goods-form .business_all .block input.form-control:focus{
+  box-shadow:none;
+  border-color:#ddd;
+}
+.goods-form .business_all .block .input-group-addon{
+	background:#fff;
+	border-left-width:0;
+	color:#999999;
+	border-color:#ddd;
+	width:40px;
+}
+.goods-form .business_all ul{
+	height:377px;
+	overflow-y:auto;
+}
+.goods-form .business_all ul li{
+	line-height:25px;
+	padding:0 5px;
+	color:#666666;
+	cursor:pointer;
+}
+.goods-form .business_all ul li.selected{
+	color:#FFF;
+	background:#428bca;
+}
+.goods-form .choose-goods_business .confirm_div{
+	width:980px;
+	text-align:center;
+	margin-top:20px;
+}
+	.goods-form .info_div{
+		width:100%;
+		border:solid 1px #ccc;
+		margin:20px 0;
+	}
+	.goods-form .info_div .info_div_head{
+		height:40px;
+		line-height:40px;
+		border-bottom:solid 1px #ccc;
+		margin-bottom:20px;
+		padding-left:20px;
+		background:#F5F4F5;
+	}
+	.goods-form .info_div .goods_business{
+	  position:relative;
+	  display: block;
+	  height: 35px;
+	  line-height: 35px;
+	  max-width: 750px;
+	  margin-left: 130px;
+	  margin-top:-55px;
+	  padding-left:15px;
+	  margin-bottom:30px;
+	  text-align:left;
+	  z-index:999;
+	}
+	.goods-form .info_div .goods_business>a{
+	  margin-left: 15px;
+	}
+   .field-goods-goods_business_id{
+   	  position:relative;
+   }
+   .field-goods-goods_business_id .help-block{
+   	   position:absolute;
+   	   left:130px;
+   	   top:25px;
+   }
+   .goods-form .field-goods-category_id,
+   .goods-form .field-goods-origin_id{
+   		margin-top:-30px;
+   		z-index:9999;
+   		position:relative;
+   	}
+    .goods-form .field-goods-category_id .help-block,
+    .goods-form .field-goods-origin_id .help-block{
+     	position:relative;left:80px;
+     }
+   .goods-form .add_cateroty_btn,
+   .goods-form .add_origin_btn{
+   		position:relative;
+   		margin-left:440px;
+   		top:2px;
+   		z-index:99999999;
+   	}
+   	.goods-form .show_unit{
+		position:relative;
+		left:380px;
+		top:-50px;
+		display:block;
+		width:40px;
+		height:0;
+		text-align:right;
+		overflow:visible;
+	}
+	.goods-form .weight_remind{
+		float:left;
+		color:#CC6600;
+		width:800px;
+		margin-left:30px;
+	}
+	.goods-form #goods-name,
+	.goods-form #goods-description{
+		width:500px;
+	}
+	.goods-form #file_upload{
+		position:relative;
+		z-index:99999999999;
+	}
+	.goods-form .field-goods-slide{
+		position:relative;
+		z-index:1;
+	}
+	.goods-form .field-goods-slide  .help-block{
+		position:absolute;
+		left:200px;
+		z-index:1;
+	}
+	.goods-form  .upload_img_remind{
+		color:#CC6600;
+		margin-left:130px;
+		margin-bottom:10px;
+	}
+	.goods-form .upload_goods_slide{
+		min-height:200px;
+		width:800px;
+		border:solid #ccc 1px;
+		padding:10px 20px;
+		margin-bottom:30px;
+		margin-left:130px;
+	}
+	.goods-form .upload_goods_slide .per_img{
+		position:relative;
+		display:inline-block;
+		height:160px;
+		width:160px;
+		margin:10px;
+		border:solid #eee 1px;
+		-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+	}
+	.goods-form .upload_goods_slide .per_img:hover{
+		background:#f1f1f1;
+		cursor:move;
+	}
+	.goods-form .upload_goods_slide .per_img .img_box{
+		height:150px;
+		width:150px;
+		margin:5px;
+		overflow:hidden;
+	}
+	.goods-form .upload_goods_slide .per_img .img_box img{
+		width:100%;
+	}
+	.goods-form .delete{
+		position: absolute; 
+		right: -5px;
+		top: -5px;
+		width: 15px;
+		height: 15px;
+		background: url("../../images/icons/delete1.png");
+		cursor: pointer;
+		z-index:99999999;	
+		border-radius:10px;   
+	}
+	.goods-form .delete:hover{
+		background: url("../../images/icons/delete2.png");
+	}
+	.goods-form  .field-goods-characteristic{
+		height:400px;
+	}
+	.goods-form #goods-characteristic{
+		width:800px;
+		height:300px;
+	}
+	.goods-form .characteristic_textarea{
+		height:300px;
+		width:800px;
+		margin-left:130px;
+	}
+	.goods-form  .field-goods-content{
+		height:500px;
+	}
+	
+	.goods-form #course-content{
+		width:800px;
+		height:400px;
+	}
+	.goods-form .content_textarea{
+		height:400px;
+		width:800px;
+		margin-left:130px;
+	}
+	.goods-form .select_date_div{
+		position:relative;
+		left:100px;
+		top:-54px;
+		z-inde:999999999;
+		width:500px;
+	}
+	.goods-form .select_date_div #my_form-control{
+		position:relative;
+		width:259px;
+		height:33px;
+		line-height:33px;
+		left:1px;
+		border-width:0;
+		border-right-width:1px;
+	}
+	.goods-form .select_date_div .select_date{
+		border-top-width:0;
+		border-bottom-width:0;
+		border-right-width:0;
+	}
+	.goods-form .field-goods-end_time,
+	.goods-form .submit_group{
+		margin-top:-50px;
+	}
+/*-- end 商品表单 goods-form 页面     zcx 2015-03-24     */
+
+/*--  商品表单 goods-form 商品规格    zcx 2015-03-25    */
+.goods-form .attribute_all{
+		min-height:170px;
+		width:800px;
+		border:solid #ccc 1px;
+		margin-bottom:30px;
+		margin-left:130px;
+		padding:10px;
+}	
+.goods-form .attribute_all .per_attribute{
+	border-bottom:dashed 1px #ccc;
+}
+.goods-form .attribute_all .per_attribute:last-child{
+	border-bottom-width:0;
+}
+.goods-form .attribute_all .per_attribute .per_attribute_name{
+	margin:10px 0;
+}
+.goods-form .attribute_all .per_attribute .per_attribute_name .name{
+	font-size:15px;
+	font-weight:bold;
+}
+.goods-form .attribute_all .per_attribute  .operate{
+	font-size:12px;
+	margin-left:5px;
+	color:#4cc0c2;
+}
+.goods-form .attribute_all .per_attribute .attribute_value .per_attribute_value{
+	width:150px;
+	margin-right:5px;
+}
+.goods-form .attribute_all .add_attribute_name_btn{
+	margin-top:10px;
+}
+.goods-form .attribute_all .add_attribute_name_div{
+	margin-top:20px;
+}
+.goods-form .attribute_all .add_attribute_name_div .pre_label{
+	text-align:center;
+}	
+.goods-form .attribute_all .add_attribute_name_div .input_attribute_name{
+	margin-left:5px;
+	margin-right:15px;
+}
+.goods-form .attribute_all .add_attribute_name_div .submit_btn,
+.goods-form .attribute_all .add_attribute_name_div .cancel_btn{
+	margin-top:1px;
+	margin-right:5px;
+}
+.goods-form .attribute_all .edit_attribute_div .add_attribute_value .input_attribute_value{
+	margin-right:10px;
+}
+.goods-form .attribute_all .edit_attribute_div .add_attribute_value .btn{
+	margin-left:5px;
+	margin-top:2px;
+}
+.goods-form .attribute_all .edit_attribute_div .edit_per_attribute_value{
+	background:#ddd;
+	margin-right:20px;
+	margin-bottom:10px;
+	border-radius:3px;
+	display:block;
+	padding:2px 5px;
+}
+.goods-form .attribute_all .edit_attribute_div .edit_per_attribute_value .delete_btn{
+	margin-left:5px;
+	font-size:9px;
+	cursor:pointer;
+	color:#666666;
+}
+.goods-form .attribute_all .edit_attribute_div .add_attribute_value .pre_label{
+	display:inline;
+	text-align:left;
+	width:70px;
+}
+.goods-form .attribute_all .edit_attribute_div .add_attribute_value .input_attribute_value{
+	margin-left:-30px;
+}
+.goods-form .attribute_all .edit_attribute_div .operate .btn{
+	height:25px;
+	line-height:25px;
+	width:50px;
+	padding:0 5px;
+	margin-right:15px;
+	margin-bottom:10px;
+}
+
+/*-- end 商品表单 goods-form 商品规格   zcx 2015-03-25    */
+
+/*--  商品表单 goods-form 商品SKU    zcx 2015-03-28    */
+	.goods-form .sku_div .table{
+		width:800px;
+		height:50px;
+		border:solid 1px #ccc;
+		margin-left:30px;
+	}
+	.goods-form .sku_div .table thead{
+		color:#555555;
+	}
+	.goods-form .sku_div .table .required{
+		color:#FF9358;
+	}
+	.goods-form .sku_div #attribute_name,
+	.goods-form .sku_div #attribute_value{
+		width:120px;
+		word-break:break-all;
+	}
+	.goods-form  .sku_div table td{
+		vertical-align:middle;
+	}
+	.goods-form .sku_div #input_productcode{
+		width:120px;
+		min-width:100px;
+		margin:0;
+	}
+	.goods-form .sku_div #input_price,
+	.goods-form .sku_div #input_promotion_price,
+	.goods-form .sku_div #input_stock,
+	.goods-form .sku_div #input_weight,
+	.goods-form .sku_div #input_volume{
+		width:100px;
+		min-width:100px;
+		margin:0;
+	}
+	.goods-form .sku_div .table .remind{
+		display:block;
+		width:100px;
+		text-align:center;
+		color:#a94442;
+	}
+	.goods-form #goods-unsupported_area{
+		width:500px;
+	} 
+	.goods-form .show_address {
+	  position: absolute;
+	  margin-top: -54px;
+	  margin-left: 130px;
+	  width: 500px;
+	  min-height: 120px;
+	  z-index: 999;
+	  background: #fff;
+	  padding: 5px;
+	  border: solid 1px #ccc;
+	}
+	.goods-form .show_address .edit_btn {
+	  display: inline;
+	  margin-left: 20px;
+	  cursor: pointer;
+	  width: 20px;
+	  height: 20px;
+	  line-height: 20px;
+	  padding-bottom: 2px;
+	  margin: 0;
+	  border-left: solid 0 #bbb;
+	  border-top: solid 0 #bbb;
+	  border-bottom: solid 1px #bbb;
+	  border-right: solid 1px #bbb;
+	  background: #fff;
+	} 
+/*--  商品表单 goods-form 商品SKU    zcx 2015-03-28    */
+
+/*--  商品评价 goods-comment  zcx 2015-06-03    */
+.goods-comment .goods_name a{
+	font-weight:400;
+	display:block;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.goods-comment .comment_div{
+	border-bottom:solid 1px #ccc;
+	color:#666666;
+}
+.goods-comment .member_info{
+	width:160px;
+}
+.goods-comment .comment_div .headimg{
+	margin:10px auto;
+	width:90px;
+	height:90px;
+	padding:5px;
+	overglow:hidden;
+}
+.goods-comment .comment_div .headimg img{
+	width:80px;
+	height:80px;
+	border-radius:80px;
+}
+.goods-comment .comment_div .username{
+	text-align:center;
+	margin-bottom:10px;
+}
+.goods-comment .comment_div .content{
+	padding:20px 0px 50px 20px;
+	position:relative;
+	width:800px;
+	min-height:140px;
+}
+.goods-comment .comment_div .pictures{
+	width:800px;
+}
+.goods-comment .comment_div .pictures .per_img{
+	width:150px;
+	height:100px;
+	margin-top:10px;
+	margin-right:10px;
+}
+.goods-comment .comment_div .pictures  img{
+	max-width:100%;
+	height:100px
+}
+.goods-comment .comment_div .reply{
+	margin-top:10px;
+	padding-top:10px;
+	border-top:solid 1px #eee;
+}
+.goods-comment .comment_div .reply .cancel_btn{
+	margin-left:10px;
+}
+.goods-comment .comment_div  .form-control{
+	width:800px;
+	max-width:800px;
+	min-width:800px;
+	margin-bottom:10px;
+}
+.goods-comment .comment_div .content .foot{
+	display:block;
+	position:absolute;
+	bottom:0;
+	right:20px;
+	text-align:right;
+	width:700px;
+	line-height:30px;
+}
+.goods-comment .comment_div .content .foot>*{
+	margin-left:20px;
+	line-height:30px;
+}
+.goods-comment .comment_div .content a.reply_a{
+	display:inline-block;
+	width:40px;
+}
+.goods-comment .comment_div .content a.show_a{
+	display:inline-block;
+	width:80px;
+	color:green;
+}
+.goods-comment .comment_div .content a.hide_a{
+	display:inline-block;
+	width:80px;
+	color:#ff0000;
+}
+/*-- end 商品评价 goods-comment  zcx 2015-06-03    */
+
+/*--  产地  origin-form  zcx 2015-08-09 从v1 origin.css迁移至此     */
+.origin-form #origin-information{
+		width:700px;
+		height:400px;
+		margin-bottom:80px;
+}
+.origin-form #origin-introduce{
+		width:600px;
+		height:300px;
+		margin-bottom:80px;
+}
+.origin-form .information_textarea{
+		height:400px;
+		width:700px;
+		margin-left:130px;
+}
+.origin-form .introduce_textarea{
+		height:300px;
+		width:600px;
+		margin-left:130px;
+}
+.origin-form .form_my_coverurl{
+	min-height:0;
+}
+.origin-form .show_cover{
+	margin-bottom:20px;
+}
+.origin-form .show_cover{
+	max-height:150px;
+	max-width:150px;
+}
+
+/*-- end 产地  origin-form  zcx 2015-08-09 从v1 origin.css迁移至此     */
+

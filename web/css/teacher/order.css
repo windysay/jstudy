@@ -1,0 +1,844 @@
+.order-index {
+ 
+}
+ 
+.order-index .xm_box {
+	min-height:30px;
+	border-bottom:1px solid #eee;
+}
+.order-index .xm_box:last-child {
+	border-bottom-width:0;
+}
+.xm_box  .box_bd .uc_avatar{
+	width:80px;
+	height:80px;
+	line-height:80px;
+	margin:20px;
+	display:block;
+	float:left;
+	color:#fff;
+	text-align:center;
+
+}
+.xm_box  .box_bd .uc_avatar .show_cover{
+	width:80px;
+	height:80px;
+	border-radius:100px;
+	border:1px solid #ddd;
+}
+
+.xm_box  .box_bd .uc_info{
+	float:left;
+	margin-left:20px;
+}
+.xm_box  .box_bd .uc_welcome{
+	line-height:30px;
+	font-size:20px;
+	margin:25px 0 0 0;
+	color:#888;
+	margin-bottom:10px;
+}
+.xm_box  .box_bd .uc_welcome .user_name{
+	font-size:25px;
+	font-weight:bold;
+	margin-right:10px;
+	color:#333;
+}
+.xm_box  .box_bd .uc_info  .icon{
+	font-size:14px;
+	margin:5px 0 0 0;
+	color:#5bb75b;
+}
+ .xm_box  .box_bd .uc_info  .sep{
+	margin:0 5px;
+}
+ 
+.xm_box .t1 {
+	font-size:16px;
+	line-height:35px;
+	color:#777;
+	padding: 10px;
+}
+.my-packet{padding-top:20px;} 
+.my-packet .hongbao-item{cursor:pointer;border-radius:5px;margin:7px 20px;width:400px;border:2px solid #ff4500;}
+.my-packet .hongbao-par-value{width:38%;color:#FFF;padding:25px 0;background:#FF6000;display:inline-block;text-align:center;}
+.my-packet .hongbao-par-value .value{font-size:27px;}
+.my-packet .hongbao-details{width:60%;padding:8px 5px;}
+.my-packet .hongbao-details .name{font-size:18px;}
+.my-packet .hongbao-details .condition{font-size:13px;padding-top:10px;}
+.my-packet .hongbao-details .time{font-size:12px;padding-top:5px;}
+  
+.order_type_a{
+ line-height:50px;
+ color:#777;
+}
+.order_type_a.pull-right{
+ margin-right:30px;
+}
+.order_type_a  a {
+ font-size:15px;
+ color:#777;
+}
+.order_type_a  a.active{
+ 	color:#FF9B00;
+}
+.order_type_a  .ge  {
+ margin:0 15px;
+ color:#777;
+}
+
+.order_table {
+	width:100%;
+}
+ .order_table tr td {
+	font-size:13x;
+}
+.order_table .separate_row {
+  height:20px;
+  border-top:solid 1px #eee;
+}
+.order_table .table_info {
+  height:35px;
+  border-bottom:1px solid #e8ebed;
+  padding-left:10px;
+   background:#f5f5f5; 
+}
+
+.order_table .table_info .pull-left{
+	 margin-right:15px;
+}
+.order_table .table_info .creattime{
+ font-size: 13px;
+ color:#555;
+   margin-left:10px;
+}
+.order_table .table_info  .glyphicon-shopping-cart{
+	margin-right:5px;
+}
+.order_table .table_info  .icon{
+	width:50px;
+	height:100%;
+	position:relative;
+}
+.order_table .table_info  .icon>img{
+	position:absolute;
+	top:-15px;
+	height:30px;
+	width:30px;
+	border-radius:100%;
+}
+.order_table .table_info  .btn_suyuan{
+    color:#FF9B00;
+}
+
+.order_table .tbody_hover .table_info {
+  border:1px solid #bbb;
+}
+.order_table .tbody_hover .table_content  .td_goods_thumb{
+ border-left:1px solid #bbb;
+}
+ .order_table .tbody_hover .table_content_last  td{
+ border-bottom:1px solid #bbb;
+}
+ .order_table .tbody_hover .td_total_pay{
+ border-bottom:1px solid #bbb;
+}
+  .order_table .tbody_hover .td_order_status{
+ border-bottom:1px solid #bbb;
+}
+  
+
+.order_table .table_info .operate_delete {
+float:right;
+margin-right:10px;
+color:#666;
+}
+.order_table .table_info .operate_delete a {
+color:#666;
+}
+.order_table .table_content td {
+/*   border:1px solid #e8ebed; */
+  color:#666;
+  vertical-align:middel;
+  padding:10px;
+}
+ 
+.order_table .table_content  .td_goods_thumb img{
+  max-width:70px;
+}
+.order_table .table_content  .td_goods_thumb{
+ width:100px;
+}
+.order_table .table_content  .td_name a{
+	color:#555;
+}
+.order_table .table_content  .td_name p{
+	font-size:12px;
+	margin-top:7px;
+}
+.order_table .table_content  .td_name{
+  width:300px;
+ border-right:none;
+ border-left:none;
+ vertical-align: middle;
+}
+.order_table .table_content  .td_price{
+  width:150px;
+   border-right:none;
+ border-left:none;
+ vertical-align: middle;
+}
+.order_table .table_content  .td_sum{
+  width:80px;
+ border-right:none;
+ border-left:none;
+ vertical-align: middle;
+}
+.order_table .table_content  .td_total_pay{
+  width:135px;
+   text-align:center;
+   vertical-align: middle;
+}
+
+.order_table .table_content .freight{
+	font-size:12px;
+	display:block;
+	vertical-align: middle;
+}
+.order_table .table_content  .td_order_status{
+  width:140px;
+   text-align:center;
+   vertical-align: middle;
+}
+.order_table .table_content  .td_order_status p{
+  margin-bottom:5px;
+}
+.order_table .table_content  .td_order_status   a{
+  display:block;
+  color:#333;
+  margin-bottom:5px;
+}
+.order_table .table_content  .td_order_status   a:hover{
+  color:#00a040;
+}
+.order_table .table_content  .td_operate{
+	 width:130px;
+}
+.order_table .table_content  .td_operate a.refund_btn{
+	color:#666666;
+}
+.order_table .table_content  .td_operate{
+	vertical-align: middle;
+   text-align:center;
+}
+.order_table .table_content  .confirm_btn{
+	background:#66B6FF;
+	border-color:#66B6FF;
+	margin-bottom:5px;
+}
+.order_table .table_content  .pay_btn{
+	background:#FF9B00;
+	border-color:#FF9B00;
+	margin-bottom:5px;
+}
+.order_table .table_content .rest_time{
+	font-size: 10px;
+	margin-bottom:2px;
+}
+.order_table .table_content .rest_time>span{
+	font-size: 10px;
+}
+
+.order_delivery_steps {
+ margin-bottom:20px;
+}
+.order_delivery_steps  li{
+	float:left;
+	width:170px;
+	margin-left:11px;
+	color:#666;
+	margin-top:15px;
+}
+ 
+.order_delivery_steps .step_first{
+	float:left;
+	width:170px;
+	margin-left:0px;
+
+}
+.order_delivery_steps .step_last{
+	float:left;
+	width:170px;
+}
+.order_delivery_steps .step_now .title{
+	background:#5bb75b;
+	color:#fff;
+}
+
+.order_delivery_steps  li .title{
+  height:35px;
+  line-height:35px;
+  text-align:center;
+  font-size:12px;
+  background:#ddd;
+}
+.order_delivery_steps  li .info{
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  font-size:13px;
+}
+.isurance{
+	padding-left:10px;
+}
+.dl_info {
+	width:50%;
+	margin-top:10px;
+	padding:10px;
+	height:220px;
+}
+.dl_info .t2 {
+	font-size:16px;
+	color:#333;
+	font-weight:normal;
+}
+ .dl_info dd {
+  line-height:30px;
+  margin-top:5px;
+}
+.dl_info dd .pull_2 {
+	margin-left:30px;
+}
+.dl_info dd p .bold_text{
+	font-weight:bold;
+}
+
+.dl_info dd p .sp_tel{
+	margin-left:30px;
+}
+
+
+.shop_cart_total {
+	min-height:100px;
+	min-width:250px;
+	float:right;
+}
+.shop_cart_total ul {
+   margin-bottom:10px;
+}
+
+.shop_cart_total li {
+	line-height:35px;
+   font-size:16px;
+}
+ .shop_cart_total li  span{
+	display:block;
+	float:right;
+	text-align:right;
+    font-size:16px;
+   	color:red;
+}
+ .shop_cart_total li  b{
+	font-weight:normal;
+}
+.shop_cart_box{
+	height:220px;
+	margin-top:10px;
+	width:50%;
+}
+.shop_cart_box .total_price {
+	height:80px;
+	font-size:16px;
+	line-height:80px;
+	border-top:1px solid #ddd;
+}
+.shop_cart_box .total_price strong {
+	font-size:30px;
+	color:red;
+}
+.shop_cart_box .total_price  span{
+	display:block;
+	float:right;
+	text-align:right;
+	font-size:25px;
+	color:red;
+}
+ 
+ .suyuan_main {
+ position:relative;
+ padding:10px 0 0 0;
+ }
+ .suyuan_ul {
+ margin-top:20px;
+  position:relative;
+  z-index:2;
+ }
+ .suyuan_ul  li{
+ min-height:70px;
+ margin-bottom:20px;
+ }
+ .suyuan_ul  li.origin{
+ 	padding:0 30px 0 40px ;
+	font-size:16px;
+ }
+ .suyuan_ul  li.origin p{
+	font-size:16px;
+	padding:10px;
+	background:#fff;
+	border:solid 1px #eee;
+	box-shadow:1px 1px 2px #ccc;
+	-webkit-box-shadow:1px 1px 2px #ccc;
+	-moz-box-shadow:1px 1px 2px #ccc;
+ }
+ .suyuan_ul  li.origin a{
+	color:#5BB75B;
+	font-size:16px;
+ }
+ .suyuan_main  .shu_box{
+ position:absolute;
+ top:75px;
+ left:190px;
+ width:2px;
+ background:#999;
+ bottom:0;
+ z-index:1;
+ }
+  .suyuan_ul  li .box{
+float:left;
+ }
+ 
+  .suyuan_ul  li .time{
+  width:160px;
+  line-height:30px;
+  text-align:right;
+ }
+ .suyuan_ul  li .img{
+ width:30px;
+ border-radius:100px;
+ height:30px;
+ line-height:30px;
+ text-align:center;
+ margin-left:20px;
+ color:#fff;
+ font-size:18px;
+ }
+  .suyuan_ul  li .img_green{
+ background:#8d9c90;
+ }
+   .suyuan_ul  li .img_red{
+ background:#f19d19;
+ }
+    .suyuan_ul  li .img_blue{
+ background:#5bb75b;
+ }
+  
+ .suyuan_ul  li .info{
+  width:650px;
+  background:#fff;
+  border-radius:3px;
+ line-height:30px;
+ margin-left:20px;
+ padding:5px 0 5px 10px;
+ border:solid 1px #eee;
+ box-shadow:1px 1px 2px #ccc;
+ -webkit-box-shadow:1px 1px 2px #ccc;
+ -moz-box-shadow:1px 1px 2px #ccc;
+ }
+  .suyuan_ul  li .info .p2{
+ line-height:30px;
+ }
+
+   .suyuan_ul  li .info .info_img img{
+      max-width:140px;
+	  max-height:140px;
+      margin:10px 10px 10px 0;
+ }
+ 
+ .suyuan_head_main  {
+ margin:20px 0 10px 0;
+
+ }
+   .suyuan_head_main li {
+   width:200px;
+   height:120px;
+   border:1px solid #fff;
+   padding:10px 5px;
+   float:left;
+   margin:0 20px 20px 0;
+   overflow:hidden;
+ }
+ .suyuan_head_main li:hover {
+  
+ }
+  .suyuan_head_main .now_hover{
+   box-shadow:1px 1px 2px #ccc;
+   	border:1px solid #ccc;
+ }
+ .suyuan_head_main .not_now {
+   	border:1px solid #eee;
+ }
+  .suyuan_head_main li .t3  {
+   height:40px;
+   line-height:20px;
+   padding:2px;
+   width:190px;
+   text-align:center;
+   color:#666;
+   overflow:hidden;
+ }
+ .suyuan_head_main .head_ul .t3 .goods_name{
+ 	color:#6F95C6;
+ }
+.suyuan_head_main .cover  {
+  max-width:80px;
+  height:60px;
+  display:block;
+  margin:0 auto;
+ }
+ .order-confirm .confirm_div{
+ 	margin-top:10px;
+ 	margin-left:10px;
+ }
+/*-- 浼氬憳璇勮璁㈠崟  zcx 2015-5-13--*/
+
+.order-comment .goods_block{
+	border-bottom:dashed 1px #eee;
+	padding:30px 0 50px 0;
+}
+.order-comment .goods_block:last-child{
+	border-bottom-width:0;
+}
+.order-comment .goods_block .thumb{
+	width:250px;
+	text-align:center;
+	padding:0 25px;
+}
+.order-comment .goods_block .thumb .goods_name{
+	margin-top:10px;
+}
+.order-comment .goods_block .image{
+	width:135px;
+	height:135px;
+	margin:0 auto;
+	padding:5px;
+	border:solid 1px #eee;
+}
+.order-comment .goods_block .image img{
+	max-width:100%;
+	max-height:100%;
+}
+.order-comment .level label{
+	margin-right:30px;
+	margin-bottom:10px;
+}
+.order-comment .comment_box textarea{
+	position:relative;
+	width:600px;
+	resize:none;
+	border-color:#ccc;
+	min-height:100px;
+} 
+.order-comment .comment_box{
+	position:relative;
+} 
+.order-comment .comment_box .text_count{
+	color:#999999;
+	position:absolute;
+	bottom:0px;
+	right:20px;
+	z-index:99999;
+}
+.order-comment .show_name label{
+	margin-top:10px;
+}
+.order-comment .show_name .add_pic{
+	font-weight:400;
+}
+.order-comment .show_name .pic_count{
+	margin:0 10px;
+	font-weight:400;
+}
+.order-comment .show_name .pull-right{
+	margin-left:10px;
+}
+.order-comment .show_pic{
+	width:360px;
+	max-height:70px;
+	margin-top:10px;
+}
+.order-comment .show_pic img{
+	width:50px;
+	height:50px;
+	margin:0 5px;
+}
+.order-comment  .warning-block{
+	margin-top:10px;
+	color:#ff0000;
+}
+.order-comment #submit_btn{
+	background:#52A1E6;
+	border-color:#52A1E6;
+	color:#fff;
+	width:130px;
+	margin:20px 250px;
+}
+ /*-- end 浼氬憳璇勮璁㈠崟  zcx 2015-5-13--*/
+ 
+ /*--  浼氬憳璇勮鐢宠閫�娆�/閫�璐�  zcx 2015-5-16--*/
+.order_refund_status{
+	margin-top:20px;
+}
+.order_refund_steps {
+ margin-bottom:20px;
+}
+.order_refund_steps  li{
+	float:left;
+	width:160px;
+	margin-left:11px;
+	color:#666;
+}
+ 
+.order_refund_steps .step_first{
+	float:left;
+	width:170px;
+	margin-left:0px;
+
+}
+.order_refund_steps .step_last{
+	float:right;
+	width:170px;
+}
+.order_refund_steps  li .refund_success{
+  height:35px;
+  line-height:35px;
+  text-align:center;
+  font-size:12px;
+  color:#fff;
+  background:#5bb75b;
+}
+.order_refund_steps  li .refund_fail{
+  height:35px;
+  line-height:35px;
+  text-align:center;
+  font-size:12px;
+  color:#fff;
+  background:#f0ad4e;
+}
+.order_refund_steps .step_now .title{
+	background:#5bb75b;
+	color:#fff;
+}
+
+.order_refund_steps  li .title{
+  height:35px;
+  line-height:35px;
+  text-align:center;
+  font-size:12px;
+  background:#ddd;
+}
+.order_refund_steps  li .info{
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  font-size:13px;
+}
+	.order-refund{
+		/* border:solid 1px #ccc; */
+	}
+	.order-refund .refund_form{
+		margin-top:0px;
+		padding:10px;
+		width:600px;
+		border-right:solid 1px #ccc;
+		min-height:250px;
+	}
+	.order-refund .refund_form .field-refund-pictures .help-block{
+		position:relative;
+		left:100px;
+	}
+	.order-refund .refund_form .field-refund-description .help-block{
+		margin-left:130px;
+		margin-top:-10px;
+	}
+.order-refund .info_div {
+  margin-bottom: 10px;
+}
+
+.order-refund .info_div .control-label {
+  width: 130px;
+  line-height: 30px;
+  padding-left: 10px;
+  font-weight:400;
+}
+.order-refund .info_div p {
+  width: 400px;
+  line-height: 30px;
+  margin-left: 20px;
+}
+.order-refund .info_div.head{
+  border-top:solid 1px #ccc;
+  padding-top:20px;
+  font-weight:700;
+  font-size:16px;
+}
+.order-refund .info_div .info_head{
+   padding-left: 10px;
+}
+.order-refund .info_div .show_pictures{
+	width:450px;
+	margin-top:10px;
+	margin-left:20px;
+}
+.order-refund .info_div .show_pictures .per_img{
+		display:inline-block;
+		height:110px;
+		width:110px;
+		margin-right:10px;
+		margin-bottom:15px;
+		border:solid #ddd 1px;
+}
+.order-refund .show_pictures .per_img:hover{
+		border:solid #00CCFF 1px;
+	}
+	.order-refund .show_pictures .per_img .img_box{
+		height:100px;
+		width:100px;
+		margin:5px;
+		overflow:hidden;
+		display:block;
+	}
+	.order-refund .show_pictures .per_img .img_box img{
+		width:100%;
+		height:100%;
+	}
+	.order-refund .refund_form #refund-return_goods label{
+		text-align:left;
+		margin-left:30px;
+	}
+	.order-refund .refund_form #refund-order_goods_id{
+		float:left;
+	}
+	.order-refund .refund_form #refund-order_goods_id label{
+		float:none;
+		width:auto;
+		max-width:480px;
+		text-align:left;
+		margin-left:30px;
+		height:auto;
+	}
+	.order-refund .refund_form .field-refund-description{
+		margin-top:10px;
+	}
+	.order-refund .refund_form #refund-description{
+		width:400px;
+		max-width:400px;
+		min-height:150px;
+		line-height:20px;
+		resize:auto;
+	}
+	.order-refund #file_upload{
+		position:relative;
+		margin-left:130px;
+		margin-top:-50px;
+		z-index:99999999999;
+	}
+	.order-refund .field-refund-pictures{
+		position:relative;
+		z-index:1;
+	}
+	.order-refund  .upload_img_remind{
+		color:#CC6600;
+		margin-left:130px;
+		margin-bottom:10px;
+		margin-top:-10px;
+	}
+	.order-refund .upload_refund_pictures{
+		height:100px;
+		width:470px;
+		border:solid #ccc 1px;
+		padding:5px;
+		margin-bottom:30px;
+		margin-left:130px;
+	}
+	.order-refund .upload_refund_pictures .per_img{
+		position:relative;
+		display:inline-block;
+		height:80px;
+		width:80px;
+		margin-left:5px;
+		margin-top:5px;
+		border:solid #ddd 1px;
+		-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	}
+	.order-refund .upload_refund_pictures .per_img:hover{
+		border:solid #00CCFF 1px;
+	}
+	.order-refund .upload_refund_pictures .per_img .img_box{
+		height:70px;
+		width:70px;
+		margin:5px;
+		overflow:hidden;
+	}
+	.order-refund .upload_refund_pictures .per_img .img_box img{
+		width:100%;
+		height:100%;
+	}
+	.order-refund .delete{
+		position: absolute; 
+		right: -5px;
+		top: -5px;
+		width: 15px;
+		height: 15px;
+		background: url("../../images/icons/delete1.png");
+		cursor: pointer;
+		z-index:99999999;	
+		border-radius:10px;   
+	}
+	.order-refund .delete:hover{
+		background: url("../../images/icons/delete2.png");
+	}
+	.order-refund .order_info_div{
+		padding:20px 10px 10px 10px;	
+		width:275px;
+	}
+
+	.order-refund .order_info_div .order_info .head{
+		display:inline-block;
+		width:70px;
+		margin-right:10px;
+		line-height:30px;
+	}
+	.order-refund .order_info_div .order_info .info{
+		display:inline-block;
+		width:150px;
+		line-height:30px;
+	}
+	.order-refund .order_info_div .order_info .price{
+		color:#FF6666;
+	}
+
+ /*--  end 浼氬憳璇勮鐢宠閫�娆�/閫�璐�  zcx 2015-5-16--*/
+
+/*--  璁㈠崟 鐨勪俊鎭彁绀洪〉闈�  zcx 2015-05-24--*/
+.order-remind-page .status{
+	padding:50px 100px;
+}
+.order-remind-page .status .glyphicon-ok{
+	color:#5EB54A;
+	margin-right:20px;
+	font-size:30px;
+	margin-top:5px;
+}
+.order-remind-page .status .glyphicon-alert{
+	color:#ff0000;
+	margin-right:20px;
+	font-size:30px;
+}
+.order-remind-page .status .text{
+	font-size:25px;
+}
+/*-- end 璁㈠崟 鐨勪俊鎭彁绀洪〉闈�  zcx 2015-05-24--*/
+
+
+

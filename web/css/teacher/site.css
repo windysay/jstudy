@@ -1,0 +1,274 @@
+.teacher_info_left{
+	width:320px;
+	padding:10px 0 0 0;
+}
+.teacher_info_right{
+	width:590px;
+	padding:10px 0 0 0px;
+}
+.teacher_info_right p{
+	margin-bottom:10px; 
+	padding-bottom:10px;
+	border-bottom:1px solid #ccc;
+	font-size:14px;
+}
+.teacher_info_right p label{
+	margin-right:5px;
+	font-size:15px;
+}
+.teacher_info_left .headimg{
+	width:320px;
+}
+.teacher_info_left .update_info{
+	padding:15px 0;
+	background:#EF3781;
+	color:#fff;
+	text-align: center;
+	cursor:pointer;
+}
+.teacher_info_left .update_info:hover{
+	background:#EF3750;
+}
+#teacher-info,#teacher-comment{
+	width:400px;
+	height:200px;
+}
+
+
+
+.timetable_list .teacher_info{
+	width:350px;
+	padding:20px;
+}
+.timetable_list .teacher_info .headimg{
+	display:block;
+	width:200px;
+	height:200px;
+	margin:50px auto 0 auto;
+}
+.timetable_list .teacher_info .name{
+	height:50px;	
+	line-height:50px;	
+	text-align:center;
+	font-size:16px;
+}
+.timetable_list .teacher_info .info{
+	line-height:25px;	
+	text-align:left;
+	width:200px;
+	margin:0 auto;
+}
+.timetable_list .teacher_info .course_count{
+	line-height:25px;	
+	text-align:center;
+	width:300px;
+	margin:50px auto 30px auto;
+}
+.timetable_list .teacher_info .course_count p{
+	margin-top:20px;
+}
+.timetable_list .teacher_info .course_count span{
+	margin-right:25px;
+}
+.timetable_list .teacher_info .course_count a{
+	display:inline-block;
+	width:50px;
+	border-bottom:solid 1px #666666;
+}
+
+.timetable_list  .time_info{
+	margin-top:20px;
+	width:600px;
+}
+.timetable_list .time_info .week table{
+	background:#F3F4F6;
+}
+.timetable_list .time_info .week table tr.week_date td{
+	border-bottom:solid 1px #bbb;
+}
+.timetable_list .time_info .week table td{
+	text-align:center;
+	width:12%;
+}
+.timetable_list .time_info .week table td.time_td{
+	width:16%;
+}
+.timetable_list .time_info .date_text{
+	font-size:15px;
+	color:#888888;
+}
+.timetable_list .time_info .week_text{
+	font-size:16px;
+	height:40px;
+	line-height:40px;
+}
+.timetable_list .time_info .week_text.weekend{
+	color:#EE3581;
+}
+.timetable_list .time_info .time_block{
+	display:block;
+	height:25px;
+	line-height:25px;
+	width:50px;
+	margin:0 auto;
+	color:#fff;
+	text-align:center;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.timetable_list .time_info .deleted{
+	background:#FF9900;
+}
+.timetable_list .time_info .canceled{
+	background:#FF9900;
+}
+.timetable_list .time_info .overtime{
+	background:#FF9900;
+}
+.timetable_list .time_info .no_choose{
+	border:solid 1px #ccc;
+}
+.timetable_list .time_info .choosed{
+	background:#ED3781;
+}
+.timetable_list .time_info .bespeaked{
+	background:#33CC00;
+}
+.timetable_list .time_info .completed{
+	background:#00AEEF;
+}
+.timetable_list .time_info .inclass{
+	background:#ED3781;
+}
+
+.timetable_list .time_info .no_choose{
+	cursor:pointer;
+}
+.timetable_list .time_info .now_choosed{  /*¸Õ¸Õ²Åµã»÷Ñ¡Ôñ*/
+	color:#ED3781;
+	font-size:18px;
+	cursor:pointer;
+}
+.timetable_list .time_info .submit_remind{
+	height:50px;
+	line-height:50px;
+	margin-right:30px;
+}
+.timetable_list .time_info .confirm_btn{
+	width:130px;
+	margin:5px 0 50px 0;
+	text-align:center;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	background:#ED3781;
+	color:#fff;
+	letter-spacing:2px;
+}
+.timetable_list .time_info .confirm_btn.disabled{
+	background:#999999;
+}
+
+
+.course-student-info .left_info{
+	width:350px;
+}
+.course-student-info .headimg{
+	display:block;
+	width:150px;
+	height:150px;
+	margin:100px 50px 0 150px;
+}
+.course-student-info .right_info{
+	margin-top:50px;
+	width:500px;
+}
+.course-student-info .info_div{
+	width:500px;
+	margin-top:5px;
+}
+.course-student-info .info_div .head{
+	width:100px;
+	text-align:right;
+	padding-right:20px;
+	height:50px;
+	line-height:50px;
+}
+.course-student-info .info_div .info{
+	width:200px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	border-bottom:solid 1px #ccc;
+}
+
+.course-history .top_tool_div{
+	margin-top:30px;
+	margin-bottom:20px;
+	padding-right:60px;
+}
+
+
+.material-photo-form .content_textarea {
+    margin-left: 130px;
+}
+
+
+.student_teacher{
+	width:220px;
+	padding:20px;
+}
+.student_teacher a{
+	display:block;
+	margin-bottom:50px;
+}
+.student_teacher .headimg{
+	display:block;
+	width:130px;
+	height:130px;
+	border-radius:100%;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	margin:0 auto;
+}
+.student_teacher .name{
+	height:50px;	
+	line-height:50px;	
+	text-align:center;
+	font-size:16px;
+}
+.student_teacher .info{
+	line-height:25px;	
+	text-align:left;
+}
+.student_teacher .teacher{
+	color:#666666;
+}
+.student_teacher .student{
+	color:#666666;
+}
+.course-class-detail .class_info{
+	width:600px;
+}
+.course-class-detail .info_div{
+	margin-top:20px;
+	padding-left:60px;
+}
+.course-class-detail .info_div .head{
+	height:50px;
+	line-height:50px;
+	width:140px;
+	text-align:right;
+	border:solid 1px #ccc;
+	padding-right:20px;
+	background:#E9EAEE;
+}
+.course-class-detail .info_div .info{
+	height:50px;
+	line-height:50px;
+	width:300px;
+	border:solid 1px #ccc;
+	padding-left:20px;
+}
+

@@ -1,0 +1,49 @@
+.material_main{		
+}
+.material_main  .xm_main{
+    width: 1200px;
+    min-height:200px;
+    margin: 0 auto;
+    padding-top:30px;
+}
+
+.material_main  .xm_main .cz_box{
+    width:320px;
+    min-height:100px;
+    float: left;
+    background: #fff;
+    padding:20px;
+    transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+}
+
+.material_main  .xm_main .cz_box .p2{
+    padding: 8px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.material_main  .xm_main .main_box{
+    width:850px;
+    min-height:100px;
+    float: right;
+    background: #fff;
+    padding:25px;
+}
+.material_main  .xm_main .main_box .name{
+    font-size: 25px;
+    font-weight: bold;
+    line-height:40px; 
+}
+.material_main  .xm_main .main_box .time{
+    font-size:13px;
+    line-height:20px; 
+    margin: 10px 0px;
+}
+
+.material_main .content  .content_body img {
+ max-width:100%;
+} 
+  

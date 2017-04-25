@@ -1,0 +1,175 @@
+@CHARSET "UTF-8";
+
+ /*  讲师列表  */
+.teacher_list  .top_tool_div{
+	height:55px;
+	padding:10px 0;
+}
+.teacher_list  .top_tool_div label{
+	height:35px;
+	line-height:35px;
+	margin-left:100px;
+}
+.teacher_list  .top_tool_div .all{
+	background:#666666;
+	color:#fff;
+	padding:0 20px;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.teacher_list  .top_tool_div .input_keywords{
+	width:200px;
+}
+.teacher_list  .top_tool_div .search_btn{
+	background:#F23A84;
+	margin:0 30px;
+}
+
+.teacher_list .per_teacher{
+	width:240px;
+	padding:10px 20px;
+}
+.teacher_list .per_teacher a{
+	display:block;
+}
+.teacher_list .per_teacher .headimg{
+	width:180px;
+	height:120px;
+	display:block;
+	margin:0 auto;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.teacher_list .per_teacher .name{
+	height:40px;
+	line-height:40px;
+	font-size:16px;
+	color:#F23A84;
+	text-align:center;
+	padding:0px 20px;
+}
+.teacher_list .per_teacher .info{
+	width:180px;
+	height:75px;
+	line-height:25px;
+	color:#666666;
+	padding:0px 20px;
+}
+.teacher_list .fenye_main{
+	margin-top:20px;
+	margin-left:30px;
+}
+/* end  讲师列表 */
+
+
+/* 讲师时间列表 */
+
+.course-timetable .all{
+	margin-top:20px;
+}
+
+.timetable_list .teacher_info_basic{
+	width:220px;
+	padding:20px;
+}
+.timetable_list .teacher_info_basic .headimg{
+	display:block;
+	width:130px;
+	height:130px;
+	border-radius:100%;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	margin:0 auto;
+}
+.timetable_list .teacher_info_basic .name{
+	height:50px;	
+	line-height:50px;	
+	text-align:center;
+	font-size:16px;
+}
+.timetable_list .teacher_info_basic .info{
+	line-height:25px;	
+	text-align:left;
+}
+.timetable_list .time_info .week{
+	width:740px;
+	padding:0 10px 30px 10px;
+	
+}
+.timetable_list .time_info .week table{
+	background:#F3F4F6;
+}
+.timetable_list .time_info .week table tr.week_date td{
+	border-bottom:solid 1px #bbb;
+}
+.timetable_list .time_info .week table td{
+	text-align:center;
+	width:12%;
+}
+.timetable_list .time_info .week table td.time_td{
+	width:16%;
+}
+.timetable_list .time_info .date_text{
+	font-size:15px;
+	color:#888888;
+}
+.timetable_list .time_info .week_text{
+	font-size:16px;
+	height:40px;
+	line-height:40px;
+}
+.timetable_list .time_info .week_text.weekend{
+	color:#EE3581;
+}
+.timetable_list .time_info .time_block{
+	display:block;
+	height:25px;
+	line-height:25px;
+	width:50px;
+	margin:0 auto;
+	color:#fff;
+	text-align:center;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.timetable_list .time_info .deleted{
+	background:#FF9900;
+}
+.timetable_list .time_info .canceled{
+	background:#FF9900;
+}
+.timetable_list .time_info .overtime{
+	background:#FF9900;
+}
+.timetable_list .time_info .no_choose{
+	border:solid 1px #ccc;
+}
+.timetable_list .time_info .choosed{
+	background:;
+	color:#000;
+
+}
+.timetable_list .time_info .bespeaked{
+	background:#e7484c;
+}
+.timetable_list .time_info .completed{
+	background:#00AEEF;
+}
+.timetable_list .time_info .inclass{
+	background:#ED3781;
+}
+
+/* end 讲师时间列表 */
+
+/* end 讲师课程历史 */
+.classes_list {
+	width:700px;
+}
+.classes_list table td{
+	text-align:center;
+}
+/* end 讲师时间列表 */
+

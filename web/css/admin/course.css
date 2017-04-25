@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+
+.teacher-timetable, 
+.teacher-history{
+	margin-top:20px;
+}
+.teacher-timetable .all{
+	margin-top:20px;
+}
+.teacher-history .top_tool_div{
+	margin-top:20px;
+	padding-right:60px;
+}
+.teacher-add-timetable form{
+	padding-top:30px;
+}
+.teacher-add-timetable form p.time{
+    float: left;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    min-width: 150px;
+    width: 300px;
+    margin-left: 30px;
+    border: 1px solid #ccc;
+    padding-left:30px;
+    color:#666666;
+}
+.teacher_info_basic{
+	width:220px;
+	padding:20px;
+}
+.teacher_info_basic a{
+	display:block;
+}
+.teacher_info_basic .headimg{
+	display:block;
+	width:130px;
+	height:130px;
+	border-radius:100%;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+	margin:0 auto;
+}
+.teacher_info_basic .name{
+	height:50px;	
+	line-height:50px;	
+	text-align:center;
+	font-size:16px;
+}
+.teacher_info_basic .info{
+	line-height:25px;	
+	text-align:left;
+}
+
+
+.course-history-record .top_tool_div{
+	padding-right:60px;
+}
+
+.course-class-detail .class_info{
+	width:600px;
+}
+.course-class-detail .info_div{
+	margin-top:20px;
+	padding-left:60px;
+}
+.course-class-detail .info_div .head{
+	height:50px;
+	line-height:50px;
+	width:140px;
+	text-align:right;
+	border:solid 1px #ccc;
+	padding-right:20px;
+	background:#E9EAEE;
+}
+.course-class-detail .info_div .info{
+	height:50px;
+	line-height:50px;
+	width:300px;
+	border:solid 1px #ccc;
+	padding-left:20px;
+}
+.course-class-detail .info_div .operate_div{
+	height:auto;
+	min-height:50px;
+	border-width:0;
+}
+
+.course-class-detail .student_list{
+	width:700px;
+	min-height:300px;
+	border-left:solid 1px #ccc;
+}
+.course-class-detail .student_list .top_tool_div{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	margin-top:20px;
+}
+.course-class-detail .student_list .top_tool_div .remind{
+	margin:0 20px;
+	font-size:16px;
+	margin-top:-10px;
+}
+.course-class-detail .student_list .top_tool_div .save_btn{
+	width:100px;
+	font-size:14px;
+}
+.course-class-detail .student_list .per_student{
+	width:33%;
+	height:50px;
+	overflow:hidden;
+	border-left:solid 1px #ccc;
+	margin:10px 0;
+}
+.course-class-detail .student_list .headimg{
+	width:50px;
+	height:50px;
+	margin:0 10px;
+	border-radius:100%;
+	-moz-border-radius:100%;
+	-webkit-border-radius:100%;
+}
+.course-class-detail .student_list .name{
+	height:50px;
+	line-height:50px;
+	margin:1 0px;
+}
+.course-class-detail .student_list label{
+	height:50px;
+	line-height:50px;
+	margin-left:10px;
+}
+.course_list thead th{
+	text-align: center;
+}
+.member-index .add-course{
+	margint-top:5px;
+}
+
+#file_upload_document-button{
+	margin-left:130px;
+}
+.uploadify-queue-item{
+	margin-left:130px;
+}

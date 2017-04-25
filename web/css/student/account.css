@@ -1,0 +1,226 @@
+.account-index {
+ 	padding-top:20px;
+}
+  
+
+/*                        账户安全                        */
+ 
+ 
+ .user_safe_main .safe_list {
+  box-sizing:border-box;
+ }
+  
+ .user_safe_main .safe_list li {
+	height:100px;
+	border-bottom:1px solid #ddd;
+	padding:10px 20px;
+    box-sizing:border-box;
+    color:#777;
+ }
+ .user_safe_main .safe_list li:hover {
+    background:#f3f6f9;
+ }
+  .user_safe_main .safe_list li .box {
+ 	height:80px;
+
+ }
+  .user_safe_main .safe_list li .title {
+	width:200px;
+	float:left;
+	border-right:1px solid #eee;
+ }
+ 
+  .user_safe_main .safe_list li .info {
+	width:300px;
+	line-height:80px;
+	float:left;
+	margin-left:20px;
+ }
+ 
+  .user_safe_main .safe_list li .caozuo {
+	width:200px;
+	line-height:80px;
+ 	float:right;
+ }
+ 
+   .user_safe_main .safe_list li .title .img_p {
+	float:left;
+	width:50px;
+ }
+   .user_safe_main .safe_list li .title .img_p span {
+      font-size:30px;
+      width:50px;
+      height:80px;
+      text-align:center;
+      line-height:80px;
+ }
+    .user_safe_main .safe_list li .title .t3 {
+	width:120px;
+	float:left;
+	font-size:18px;
+	text-align:center;
+	color:#666;
+	height:80px;
+	line-height:80px;
+	font-weight:bold;
+ } 
+ /***** 手机绑定 *****/
+ .phoneCode_basic   .top_t1{
+ height:40px;
+ line-height:40px;
+ font-size:16px;
+ padding-left:30px;
+ margin-bottom:20px;
+ color:#5bb75b;
+ } 
+ 
+ .phoneCode_basic .send_code {
+	margin-left:30px;
+	height:35px;
+	line-height:35px;
+	width:300px;
+		margin-bottom:20px;
+ }
+ .phoneCode_basic .send_code .sms_code,
+ .phoneCode_basic .send_code .voice_code{
+ 		display:block;
+ 		width:100px;
+ 		margin-right:20px;
+ }
+ .member-change-mobile #member-mobile{
+ margin-left:30px;
+ float:left;
+ width:300px;
+ height:35px;
+ line-height:35px;
+ }
+ .member-change-mobile #member-mobile span{
+	 margin-left:5px;
+	 font-size:16px;
+ }
+ 
+  /***** 手机绑定 *****/
+ 
+ .acount-mail-validate .btn_box {
+ margin-left:100px;
+ }
+ 
+.address_list  dt{
+    background:#e8ebed;
+    color:#000;
+    font-weight:normal;
+}
+.address_list  dd{
+    min-height:80px;
+    border-bottom:1px solid #ddd;
+    color:#777;
+}
+
+.address_list  .width_name{
+	width:120px;
+}
+.address_list  .width_tel{
+	width:120px;
+}
+.address_list  .width_area{
+	width:200px;
+}
+.address_list  .width_address{
+	width:220px;
+}
+
+.address_list  .width_caozuo{
+ margin-left:20px;
+}
+
+.address_list dd:hover {
+  background:#f4f5f6;
+} 
+.address_list  .t_t {
+	padding:7px 5px;
+	display:block;
+	float:left;
+  line-height:25px;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+	hyphens: auto;
+	word-wrap: break-word;
+} 
+ 
+.address_list  .width_caozuo .ge_xian {
+ width:1px;
+ height:13px;
+ display:block;
+ margin:6px 5px 0 5px;
+ background:#777;
+ float:left;
+} 
+.address_list  .width_caozuo a {
+ display:block;
+ float:left;
+} 
+.address_list  .is_use_box   {
+float:right;
+margin-right:10px;
+} 
+.address_list  .is_use_box_0 {
+float:right;
+margin-right:10px;
+display:none;
+} 
+
+.headimg_main {
+	margin:20px 0;
+}
+
+.headimg_main .show_cover {
+	width:150px;
+	height:150px;
+	border-radius:100px;
+	margin:0 auto;
+	display:block;
+	border:2px solid rgba(0,0,0,0.3);
+}
+
+.headimg_main .up_box {
+ text-align:center;
+ margin-top:30px;
+}
+
+.login_info_main  .m_box {
+	margin:0 0 20px 0;
+}
+.login_info_main  .m_box  .t2{
+	line-height:30px;
+	color:#888;
+}
+.login_info_main  .m_box  .t1{
+	line-height:25px;
+	font-size:16px;
+	color:#333;
+}
+.login_info_main  .m_box  .s1{
+font-weight:bold;
+margin-right:10px;
+}
+ 
+.add_address_main {
+	padding-top:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
