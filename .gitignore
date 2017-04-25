@@ -1,8 +1,10 @@
-assets/*
 !assets/.gitignore
 protected/runtime/*
 !protected/runtime/.gitignore
 protected/data/*.db
 themes/classic/views/
-/vendor
-/runtime
+.idea/
+runtime/
+trunk/
+vendor/
+web/assets/
