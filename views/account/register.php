@@ -3,36 +3,30 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\Url;
  
-$this->title = '学生注册';
+$this->title = '会员注册';
 $this->registerJsFile(Yii::$app->homeUrl.'js/validate.js',['depends' => [yii\web\JqueryAsset::className()]]);
 $this->registerJsFile(Yii::$app->homeUrl.'js/jquery.cookie.js',['depends' => [yii\web\JqueryAsset::className()]]);
 ?>
   
-<div class="account-register account_basic">
+<div class="account-register2 account_basic">
 
 	<div class="main_z clearfix">
   	  <div class="main clearfix">
-        <div class="left_box">
-             <div class="img_bg"></div>
-         </div> 
-  		 <div class="right_box">
-			   <p class="title_p">学生注册</p>
-			<?php $form = ActiveForm::begin(); ?>
-		    <?= $form->field($model, 'mobile',['enableAjaxValidation' => true])->textInput(['maxlength' =>11,'placeholder'=>"输入手机号码"]) ?>
-			<div class="form-group field-student-phoneCode required">
-				<div class="input-group">
-				   <input type="text" id="student-phoneCode" class="form-control" name="Student[phoneCode]" maxlength="6"  placeholder="手机验证码">
-	               <div class="input-group-addon send_code clearfix">
-	                   <div class="sms_code pull-left">短信验证</div>
-	                   <div class="pull-left line"></div>
-	                   <div class="voice_code pull-left">语音验证</div>
-	               </div>
-	            </div>
-				<div class="help-block one_f_warn"></div>
-			</div> 
-			 <?= $form->field($model, 'email',['enableAjaxValidation' => true])->textInput(['maxlength' =>40,'placeholder'=>"接收消息的电子邮箱"]) ?>
+         <p class="t1">会员注册</p>
+  		 <div class="remain_box">
+
+		  	<?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($model, 'username',['enableAjaxValidation' => true])->textInput(['maxlength' =>18,'placeholder'=>"※提交后无法修改"]) ?>
+			<?= $form->field($model, 'email',['enableAjaxValidation' => true])->textInput(['maxlength' =>40,'placeholder'=>"接收消息的电子邮箱"]) ?>
 		    <?= $form->field($model, 'password')->passwordInput(['maxlength' =>18,'placeholder'=>"登录密码"]) ?>
 		    <?= $form->field($model, 'confirmPassword')->passwordInput(['maxlength' =>18,'placeholder'=>"确认登录密码"]) ?>
+	        <?= $form->field($model, 'qq')->textInput(['maxlength' =>true,'placeholder'=>"您的qq号"]) ?>
+	        <?= $form->field($model, 'skype')->textInput(['maxlength' =>true,'placeholder'=>"您的skype账号"]) ?>
+	        <div class="help-block" style="margin:-20px 0 0 50px;">（※以上两项请选填一项）</div>
+	        <?= $form->field($model, 'mobile',['enableAjaxValidation' => true])->textInput(['maxlength' =>11,'placeholder'=>"输入手机号码"]) ?>
+	        <div class="help-block" style="margin:-20px 0 0 50px;">（不填写也可以正常注册哦，使用试听券时需要手机加验证码，一个账户只能验证一次）</div>
+	        <?= $form->field($model, 'chengdu')->dropDownList($chengdu) ?>
+            <?= $form->field($model, 'xueximudi')->dropDownList($xueximudi) ?>
 	      <div class="form-group submit_group">
 		        <?= Html::submitButton('立即注册', ['class'=>'btn btn-success my_btn']) ?>
 		    </div>
@@ -79,6 +73,26 @@ $this->registerJsFile(Yii::$app->homeUrl.'js/jquery.cookie.js',['depends' => [yi
        }
       }
  
+function showChenduHtml(on){
+  if(on==1){
+     var html='<div class="form-group f_chengdu2"><label class="control-label" for="student-chengdu">日语程度</label><input type="text" id="student-chengdu" class="form-control" name="Student[chengdu]" maxlength="500" placeholder="请填写您的日语程度"></div>';
+     $(".field-student-chengdu").after(html);
+    
+  }else{
+   $(".f_chengdu2").remove();
+  }
+}
+  
+function showXueximudiHtml(on){
+  if(on==1){
+     var html='<div class="form-group f_xueximudi2"><label class="control-label" for="student-xueximudi">学习日语的目的</label><input type="text" id="student-xueximudi" class="form-control" name="Student[xueximudi]" maxlength="500" placeholder="请填写您学习日语的目的"></div>';
+     $(".field-student-xueximudi").after(html);
+    
+  }else{
+   $(".f_xueximudi2").remove();
+  }
+}
+
 //////////////////////
 $(document).ready(function(){
     var cookie_code_countdown_time= $.cookie('code_countdown_time'); 
@@ -105,6 +119,18 @@ $(document).ready(function(){
     })
 	
 	
+ $(".my_btn").click(function(){
+   var qq=$("#student-qq").val();
+   var skype=$("#student-skype").val();
+   if(qq||skype)
+     return true;
+   else{
+      alert('请填写QQ或者skype,二选一');
+      return false;
+   }
+ })
+
+ 
 //验证验证码的正确性
    $("#student-phoneCode").blur(function(){
 	     var code=$.trim($(this).val());
@@ -147,6 +173,30 @@ $(document).ready(function(){
        }
     })
     
+    $("#student-chengdu").change(function(){
+      var id=$(this).val()
+      if(id==0){
+        showChenduHtml(1);
+        $(".f_chengdu2").fadeIn(400);
+      }else{
+        $(".f_chengdu2").fadeOut(400);
+        showChenduHtml(0);
+      }
+    })
+    
+    $("#student-xueximudi").change(function(){
+      var id=$(this).val()
+      if(id==0){
+        showXueximudiHtml(1);
+        $(".f_xueximudi2").fadeIn(400);
+      }else{
+        $(".f_xueximudi2").fadeOut(400);
+        showXueximudiHtml(0);
+      }
+    })
+
+ 
+
  
 ////////////////////////
 })

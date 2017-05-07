@@ -57,7 +57,7 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 				],
 		];
 	}
-	 
+
 
     public function actions(){
         return [
@@ -66,19 +66,19 @@ class AccountController extends Controller{//登录、注册、找回账户等�
             ],
         	'captcha' => [//验证码
         		'class' => 'yii\captcha\CaptchaAction',
-        		'backColor'=>0xe8ebed,	
+        		'backColor'=>0xe8ebed,
         		'foreColor'=>0x22a0dc,
-        		'height'=>'40',	
-        		'width'=>'110',	
-        		'minLength'=>4,	
-        		'maxLength'=>4,	
+        		'height'=>'40',
+        		'width'=>'110',
+        		'minLength'=>4,
+        		'maxLength'=>4,
         		//'transparent'=>true,//透明背景
         	],
         ];
     }
 
 	public function actionChoiceLogin(){//没有权限，就登录那个界面
-		$return_url = Yii::$app->request->referrer; 
+		$return_url = Yii::$app->request->referrer;
 		if(strpos($return_url, 'teacher') || strpos($return_url, 'teacher-login'))
 			return $this->redirect('teacher-login');
 		elseif(strpos($return_url, 'admin') || strpos($return_url, 'admin-login'))
@@ -86,7 +86,7 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		else
 			return $this->redirect('login');
 	}
-	
+
 	public function actionLogin(){//学生会员登陆
 		if (!\Yii::$app->user->isGuest) {
 			return $this->redirect(Url::toRoute("student/site"));
@@ -102,7 +102,7 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 			]);
 		}
 	}
-	
+
 	public function actionTeacherLogin(){//老师登录
 		//Yii::$app->merchant->identityClass = 'backend\models\Teacher';//设置user-class
 		if (!\Yii::$app->teacher->isGuest) {
@@ -146,28 +146,8 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 			]);
 		}
 	}
-	
-	public function actionRegister(){//会员注册
-		$model = new Student();
-		$model->scenario='register';
-		$model->phoneCodeUseType=1;
-		if (Yii::$app->request->isAjax && $model->load($_POST)){
-			Yii::$app->response->format = 'json';
-			return \yii\widgets\ActiveForm::validate($model);
-		}
-		if ( $model->load(Yii::$app->request->post() ) &&  $model->save() ) {
-			$user=$model;
-			Yii::$app->user->login($user, 3600 * 24 * 30);
-			Yii::$app->session->setFlash('register_success', "恭喜，注册成功,赠送您一张上课券!");
-			return $this->redirect(['student/site/index']);
-		} else {
-			return $this->render('register', [
-					'model' => $model,
-					]);
-		}
-	}
-     
-	public function actionRegister2(){//最新的会员注册
+
+	public function actionRegister2(){//会员注册
 		$model = new Student();
 		$model->scenario='register2';
 		$model->phoneCodeUseType=1;
@@ -181,14 +161,34 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 			Yii::$app->session->setFlash('register_success', "恭喜，注册成功,赠送您一张上课券!");
 			return $this->redirect(['student/site/index']);
 		} else {
-			$chengdu=['大神级别'=>'大神级别','日常交流级别'=>'日常交流级别','中等级别'=>'中等级别','基础理解级别'=>'基础理解级别','完全初学者'=>'完全初学者'];
-			$xueximudi=['兴趣（二次元党 日饭）'=>'兴趣（二次元党 日饭）','工作需要'=>'工作需要','个人充电（语言也是一门技艺）'=>'个人充电（语言也是一门技艺）','0'=>'其他理由'];	
 			return $this->render('register2', [
+					'model' => $model,
+					]);
+		}
+	}
+
+	public function actionRegister(){//最新的会员注册
+		$model = new Student();
+		$model->scenario='register';
+		$model->phoneCodeUseType=1;
+		if (Yii::$app->request->isAjax && $model->load($_POST)){
+			Yii::$app->response->format = 'json';
+			return \yii\widgets\ActiveForm::validate($model);
+		}
+		if ( $model->load(Yii::$app->request->post() ) &&  $model->save() ) {
+			$user=$model;
+			Yii::$app->user->login($user, 3600 * 24 * 30);
+			Yii::$app->session->setFlash('register_success', "恭喜，注册成功,赠送您一张上课券!");
+			return $this->redirect(['student/site/index']);
+		} else {
+			$chengdu=['大神级别'=>'大神级别','日常交流级别'=>'日常交流级别','中等级别'=>'中等级别','基础理解级别'=>'基础理解级别','完全初学者'=>'完全初学者'];
+			$xueximudi=['兴趣（二次元党 日饭）'=>'兴趣（二次元党 日饭）','工作需要'=>'工作需要','个人充电（语言也是一门技艺）'=>'个人充电（语言也是一门技艺）','0'=>'其他理由'];
+			return $this->render('register', [
 					'model' => $model,'chengdu'=>$chengdu,'xueximudi'=>$xueximudi
 					]);
 		}
 	}
-    
+
 
 	public function actionForgetPassword(){
 		$model=new FindPassword();
@@ -204,7 +204,7 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		}
 		return $this->render('forget-password',['model'=>$model]);
 	}
-	
+
 	public function actionForgetPasswordEmail(){ //老师找回密码跳转
 		return $this->render("forget-password-email");
 	}
@@ -300,7 +300,6 @@ class AccountController extends Controller{//登录、注册、找回账户等�
             return $this->redirect(['/student/site/index']);
         }else{
             $mailValidate=MailValidate::find()->where(['email'=>$mail,'token'=>$token])->one();
-            //var_dump($token);die;
             if($mailValidate===null){
                 throw new NotFoundHttpException('您访问的页面不存在.');
             }
@@ -310,7 +309,6 @@ class AccountController extends Controller{//登录、注册、找回账户等�
                 return $this->render('email-reset-password',['error'=>$error]);
                 exit();
             }
-            //$mailValidate->delete();
             return $this->render('email-reset-password',['member'=>$member]);
         }
     }
@@ -387,15 +385,15 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		$newPassword=Yii::$app->request->post('newPassword');
 		$phone=Yii::$app->request->post('phone');
 		$phoneCodeUseType=Yii::$app->request->post('use_type');
-		
+
 		$student=Student::findOne(['mobile'=>$phone]);
-		
+
 		if($student){
 			$student->scenario='find-set-password';
 			$student->phoneCodeUseType=$phoneCodeUseType;
-			$student->mobile=$phone;		
-			$student->phoneCode=$phoneCode;		
-			$student->newPassword=$newPassword;		
+			$student->mobile=$phone;
+			$student->phoneCode=$phoneCode;
+			$student->newPassword=$newPassword;
 			$validate=json_decode($student->validate(['phoneCode']));
 			if($validate){
 				if($student->save()){
@@ -407,8 +405,8 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 				}
 			}else{
 				echo json_encode('error_code');
-			} 
-			
+			}
+
 		}
 
 	}
@@ -418,28 +416,28 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		$model=$this->sendEmail();
 		return $this->render('send-mail',['model'=>$model]);
 	}
- 
+
 	public function goModule($grade){
 		if (!\Yii::$app->user->isGuest) {
 			return $this->goHome();
 		}
 		switch($grade){
 			case 1:'';break;
-			 
+
 		}
 	}
-	 
+
 	public function actionTeacherLogout(){
 		Yii::$app->teacher->logout();
 		return $this->redirect(['account/teacher-login']);
 
 	}
-	 
+
 	public function actionAdminLogout(){
 		Yii::$app->admin->logout();
 		return $this->redirect(['account/admin-login']);
 	}
-	 
+
 	public function actionLogout(){
 		Yii::$app->user->logout();
 		return $this->redirect(['account/login']);
@@ -451,7 +449,7 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		return $this->render('error');
 	}
 
- 
+
 
 
 }

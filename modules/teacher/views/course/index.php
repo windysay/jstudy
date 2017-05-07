@@ -174,7 +174,7 @@ $(document).ready(function(){
 			return false;
 		 }
 		 var id=$(this).attr("data-id");
-		 deleteAlert(id,'提出后将不可修改，确定吗？');
+		 deleteAlert(id,'提出後の変更は出来ませんので、これでよろしいですか');
 	 }) 
 	
 })	

@@ -125,7 +125,7 @@ AppAsset::register($this);
 $(document).ready(function(){
 
 	$("img").error(function() {
-		$(this).attr("src", "<?= Yii::$app->homeUrl?>/images/basic/basic_header.jpg");
+		$(this).attr("src", "<?=Yii::$app->urlManager->baseUrl.'/images/basic/basic_header.jpg' ?>");
 	});
 
 	$('.my_site_menu_dropdown').dropdownHover();

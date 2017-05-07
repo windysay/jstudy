@@ -172,7 +172,7 @@ $this->title ="用户注册协议";
 </p>
 		</div>
 		<div class="next_register">
-         <a href="<?=Url::toRoute(['account/register2']);?>">同意协议,继续注册</a>
+         <a href="<?=Url::toRoute(['account/register']);?>">同意协议,继续注册</a>
 		</div>
 	</div>
 </div>

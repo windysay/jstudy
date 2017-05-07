@@ -6,11 +6,11 @@ use Yii;
 class  SendCloud{
 //	const API_USER = 'tianyuanhaoke';// 之前的测试用的应用id
 //	const API_key = 'h2BG1yWXdaeRzNIK';// 之前的测试用的秘钥  
-	const API_USER = 'tianyuanhaoke2015';// 应用id
-	const API_key = 'EAddtmHKPGwBbnEl';//应用秘钥
+	const API_USER = 'Iperapera_test_qop7Ma';// 应用id
+	const API_key = 'ojILho3GyxyqxxtB';//应用秘钥
 	const URL = 'http://sendcloud.sohu.com/webapi/mail.send.json';//
 //	const FROM='313078747@qq.com';  //发件邮箱
-	const FROM='service@tianyuanhaoke.com ';  //发件邮箱
+	const FROM='service@iperapera.com ';  //发件邮箱
 	const FROMNAME='IPERAPERA';  //发件人名称 
 	const LABEL_MAIL_VALIDATE=10519;     //验证邮箱 的标签     标签是为了后台统计数据用的 分类
 	const LABEL_SEND_ORDER=10520;    //订单发货的标签 

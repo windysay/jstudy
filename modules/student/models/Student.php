@@ -132,8 +132,8 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
     public function scenarios(){   //自定义验证场景
     	$scenarios = parent::scenarios();
     	//$scenarios['login'] = ['username', 'password','verifyCode'];
-    	$scenarios['register'] = ['password','confirmPassword','mobile' ,'email','phoneCode'];//,'code'
-        $scenarios['register2'] = ['username','password','confirmPassword','qq','skype','email','chengdu','xueximudi'];//,'code'
+    	$scenarios['register2'] = ['password','confirmPassword','mobile' ,'email','phoneCode'];//,'code'
+        $scenarios['register'] = ['username','password','confirmPassword','qq','skype','email','chengdu','xueximudi'];//,'code'
      	$scenarios['username'] = ['username'];//,'code'
     	$scenarios['update-info'] = ['qq','email','realname','sex','skype','course_ticket','mobile'];
     	$scenarios['update-student'] = ['realname','sex','skype','qq','wechat','address'];
