@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\components\Help;
+use app\extensions\sendcloud\SendCloud;
 use app\models\FindPassword;
 use app\models\LoginForm;
 use app\models\MailValidate;
@@ -223,12 +224,11 @@ class AccountController extends Controller{//登录、注册、找回账户等�
 		if($user===null) {echo 0;return false;}
 		$token=Help::random(32);
 		$href=Url::toRoute(["email-reset-password","email"=>base64_encode($email),"token"=>base64_encode($token)]);
-		$mail= Yii::$app->mailer->compose(); //加载模板这样写：$mail= Yii::$app->mailer->compose('moban',['key'=>'value']);
-		$mail->setTo($email);
-		$mail->setSubject("Iperapera - パスワード変更");
-		$mail->setTextBody('パスワード変更');
-		$mail->setHtmlBody("本メールはIPERAPERA日本語オンラインコミュニケーションより、講師専用パスワード変更システムです。<br><br>".date('Y-m-d H:i:s')." パスワードの変更を求められました。以下のURLにてパスワードの再設定をしてください。<br/><br/>※安全上の為、URLの有効期間は30分です。尚、アクセスは一回のみになっておりますので、ご了承ください。<br><br><a href='".$href."'> ".$href."</a><br><br>※本メールは送信専用メールアドレスから配信されております。ご返信いただいてもお答えできませんので、予めご了承ください。<br><br>※本メールにお心当たりのない場合は、誠にお手数ではございますが、本メールの削除をお願い申し上げます。");
-		if($mail->send()){
+        $subject = 'Iperapera - パスワード変更';
+        $html = "本メールはIPERAPERA日本語オンラインコミュニケーションより、講師専用パスワード変更システムです。<br><br>" . date('Y-m-d H:i:s') . " パスワードの変更を求められました。以下のURLにてパスワードの再設定をしてください。<br/><br/>※安全上の為、URLの有効期間は30分です。尚、アクセスは一回のみになっておりますので、ご了承ください。<br><br><a href='" . $href . "'> " . $href . "</a><br><br>※本メールは送信専用メールアドレスから配信されております。ご返信いただいてもお答えできませんので、予めご了承ください。<br><br>※本メールにお心当たりのない場合は、誠にお手数ではございますが、本メールの削除をお願い申し上げます。";
+        $label = '找回密码';
+        $send_res = json_encode(SendCloud::send_mail($email, $subject, $html, $label), true);
+        if ($send_res['message'] == 'success') {
 			$model=new MailValidate();
 			$model->pid=$user->id;
 			$model->type=2;
@@ -246,12 +246,11 @@ class AccountController extends Controller{//登录、注册、找回账户等�
         if($user===null) {echo 0;return false;}
         $token=Help::random(32);
         $href=Url::toRoute(["email-reset-userpwd","email"=>base64_encode($email),"token"=>base64_encode($token)]);
-        $mail= Yii::$app->mailer->compose(); //加载模板这样写：$mail= Yii::$app->mailer->compose('moban',['key'=>'value']);
-        $mail->setTo($email);
-        $mail->setSubject("日语口语教学平台 - 用户密码重置");
-        $mail->setTextBody('密码重置');
-        $mail->setHtmlBody("尊敬的用户：您好！您在 ".date('Y-m-d H:i:s')." 申请重置密码，请点击下面的链接修改您的密码为了保证您帐号的安全性，该链接有效期为30分钟，点击一次后失效!<a href='".$href."'> ".$href."</a>");
-        if($mail->send()){
+        $subject = '日语口语教学平台 - 用户密码重置';
+        $html = "尊敬的用户：您好！您在 " . date('Y-m-d H:i:s') . " 申请重置密码，请点击下面的链接修改您的密码为了保证您帐号的安全性，该链接有效期为30分钟，点击一次后失效!<a href='" . $href . "'> " . $href . "</a>";
+        $label = '密码重置';
+        $send_res = json_encode(SendCloud::send_mail($email, $subject, $html, $label), true);
+        if ($send_res['message'] == 'success') {
             $model=new MailValidate();
             $model->pid=$user->id;
             $model->type=2;
@@ -269,12 +268,11 @@ class AccountController extends Controller{//登录、注册、找回账户等�
         if($user===null) {echo 0;return false;}
         $token=Help::random(32);
         $href=Url::toRoute(["email-reset-adminpwd","email"=>base64_encode($email),"token"=>base64_encode($token)]);
-        $mail= Yii::$app->mailer->compose(); //加载模板这样写：$mail= Yii::$app->mailer->compose('moban',['key'=>'value']);
-        $mail->setTo($email);
-        $mail->setSubject("日语口语教学平台 - 管理员密码重置");
-        $mail->setTextBody('密码重置');
-        $mail->setHtmlBody("尊敬的管理员：您好！您在 ".date('Y-m-d H:i:s')." 申请重置密码，请点击下面的链接修改您的密码为了保证您帐号的安全性，该链接有效期为30分钟，点击一次后失效!<a href='".$href."'> ".$href."</a>");
-        if($mail->send()){
+        $subject = '日语口语教学平台 - 管理员密码重置';
+        $html = "尊敬的管理员：您好！您在 " . date('Y-m-d H:i:s') . " 申请重置密码，请点击下面的链接修改您的密码为了保证您帐号的安全性，该链接有效期为30分钟，点击一次后失效!<a href='" . $href . "'> " . $href . "</a>";
+        $label = '密码重置';
+        $send_res = json_encode(SendCloud::send_mail($email, $subject, $html, $label), true);
+        if ($send_res['message'] == 'success') {
             $model=new MailValidate();
             $model->pid=$user->id;
             $model->type=2;
