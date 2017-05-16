@@ -147,21 +147,23 @@
   line-height:40px;
   text-align: center; 
   display:block;
-  border-top:1px solid #ddd; 
+    border: 1px solid #ddd;
   color:#333;
 }
 .site-index .middle .right .middle_nav .er_nav a:hover{
 	color:#e7484c;
 }
 .site-index .middle .right .middle_nav .lia{
-	display:bbock;
+    display: block;
 	width:25%;
 	height:50px;
 	line-height:50px;
 	text-align:center;
 	color:#333333;
-	border-top:solid 1px #ccc;
-	border-right:solid 1px #999999;
+    /*border-top:solid 1px #ccc;*/
+    /*border-right:solid 1px #999999;*/
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .site-index .middle .right .middle_nav .lia:hover{
 	color:#e7484c;

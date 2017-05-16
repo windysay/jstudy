@@ -6,6 +6,7 @@
     width: 1100px;
     margin: 0 auto;
     min-height: 400px;
+    background: #fff;
 }
 
 .account_basic .main .left_box {
@@ -17,10 +18,10 @@
 .account_basic .main .left_box .img_bg {
     width: 420px;
     height: 620px;
-    border-radius: 64px;
+    /*border-radius: 64px;*/
     background: url(../images/pc/4.jpg) center;
 
-    box-shadow: 0 0 2px #fbfbfb inset, 0 0 4px #fbfbfb inset, 0 0 8px #fbfbfb inset, 0 0 16px #fbfbfb inset, 0 0 32px #fbfbfb inset, 0 0 64px #fbfbfb inset;
+    /*box-shadow: 0 0 2px #fbfbfb inset, 0 0 4px #fbfbfb inset, 0 0 8px #fbfbfb inset, 0 0 16px #fbfbfb inset, 0 0 32px #fbfbfb inset, 0 0 64px #fbfbfb inset;*/
 }
 
 .account_basic .main .right_box {

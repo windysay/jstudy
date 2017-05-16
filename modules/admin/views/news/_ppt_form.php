@@ -30,7 +30,7 @@ $this->registerJsFile(Yii::$app->homeUrl.'widget/ueditor/ueditor.all.min.js',['d
 		   </div>
 		   <div class="button"><?= Html::button('上传图片',['class' => 'btn btn-success btn-sm','id'=>'file_upload']) ?>
            </div>
-           <div class="tishi_hit">图片建议大小: 900*500</div>
+             <div class="tishi_hit">图片建议大小: 800*600</div>
 		 </div>
 		 <div class="help-block" data-original-title="" title=""></div>
           <input type="file"   name="userfile"  id="file_upload_input"    class="file_btn"  style="width:1px;height:1px;filter:alpha(Opacity=0);-moz-opacity:0;opacity:0;position:absolute;top:0;left:0;z-index:-3;" value="图片+"/>

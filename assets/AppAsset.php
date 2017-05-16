@@ -20,7 +20,6 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/basic.css',
         'css/front_basic.css',
-        '../vendor/fontawesome/font-awesome.min.css',//Awesome字体引入
     ];
     public $js = [
 	    'js/tool.js',

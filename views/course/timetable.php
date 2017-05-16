@@ -18,7 +18,11 @@ $this->registerCssFile(Yii::$app->homeUrl.'css/teachers-timetable.css',['depends
 	 		<a href="javascript:void(0)">
 				<img class="headimg" src="<?= $teacher['headimg']?Yii::$app->urlManager->baseUrl.'/images/'.$teacher['headimg']:null ;?>">
 				<p class="name"><?= Html::encode($teacher['name']); ?></p>
-				<p class="info"><?= Html::encode($teacher['info']); ?></p>
+                <audio src="<?= $teacher['voice_url'] ?>" controls="autoplay" style="width: 180px"
+                       controlsList="nodownload">
+                    您的浏览器不支持播放。
+                </audio>
+                <p class="info" style="text-align: center"><?= Html::encode($teacher['info']); ?></p>
 			</a>
 		</div> 
 	 	<div class="time_info pull-left">

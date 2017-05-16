@@ -24,6 +24,7 @@ use yii\base\NotSupportedException;
  * @property string $comment
  * @property string $address
  * @property string $register_ip
+ * @property string $voice_url
  * @property string $createtime
  * @property integer $updatetime
  */
@@ -58,7 +59,7 @@ class Teacher extends \yii\db\ActiveRecord implements IdentityInterface
             [['password'], 'string', 'max' => 64],
             [['name', 'skype'], 'string', 'max' => 30],
             [['qq'], 'string', 'max' => 11],
-            [['info'], 'string', 'max' => 200],
+            [['info', 'voice_url'], 'string', 'max' => 200],
             [['headimg'], 'string', 'max' => 500],
             [['address'], 'string', 'max' => 50],
             [['register_ip'], 'string', 'max' => 15],
@@ -109,7 +110,8 @@ class Teacher extends \yii\db\ActiveRecord implements IdentityInterface
             'newPassword' => '新しいパスワード',//新密码
             'confirmPassword' => '再確認入力',//确认密码
             'confirmNewPassword' => '确认密码',
-            
+            'voice_url' => '语音介绍',
+
             'phoneCode'=>'验证码',  //手机
             'code'=>'验证码',  //邮箱
         ];
@@ -137,6 +139,7 @@ class Teacher extends \yii\db\ActiveRecord implements IdentityInterface
     	$scenarios['update-monetary']=['monetary'];
     	$scenarios['save-integral']=['integral'];
     	$scenarios['monetary-integral']=['monetary','integral'];
+        $scenarios['voice_url'] = ['voice_url'];
     	return $scenarios;
     }
     

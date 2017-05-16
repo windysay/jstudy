@@ -21,7 +21,6 @@ class BackendAsset extends AssetBundle
     public $css = [
         'css/backend_basic.css',
     	'css/basic.css',
-        '../vendor/fontawesome/font-awesome.min.css',//Awesome字体引入
     ];
     public $js = [
     	'js/tool.js',
