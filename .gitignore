@@ -4,7 +4,7 @@ protected/runtime/*
 protected/data/*.db
 themes/classic/views/
 .idea/
-runtime/
-trunk/
-vendor/
-web/assets/
+runtime/*
+trunk/*
+#vendor/
+web/assets/*
