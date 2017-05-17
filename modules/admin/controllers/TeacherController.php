@@ -60,10 +60,10 @@ class TeacherController extends Controller
             } else //匹配名字
                 $data = Teacher::find()->where(['like', 'name', $keywords])->andWhere(['status' => 1]);
         } else {
-            $data = Teacher::find()->where(['status' => 1])->orderBy('createtime DESC');
+            $data = Teacher::find();
         }
         $pages = new Pagination(['totalCount' => $data->count(), 'pageSize' => '30']);
-        $model = $data->offset($pages->offset)->limit($pages->limit)->orderBy('createtime ASC')->all();
+        $model = $data->offset($pages->offset)->limit($pages->limit)->orderBy('createtime DESC')->all();
         return $this->render("index", ['model' => $model, 'pages' => $pages, 'count' => $data->count()]);
     }
 
