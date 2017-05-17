@@ -143,6 +143,10 @@ class CourseController extends Controller
     }
 
     public function actionTimetable($t){
+	    if(empty(Yii::$app->user->identity->telephone)){
+	        Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
+	        return $this->redirect('/student/site/bind-mobile');
+        }
     	$teacher_id=Html::encode($t);
     	$teacher=Teacher::find()->where('id=:teacher_id',[':teacher_id'=>$teacher_id])->asArray()->one();
     	if($teacher===null){
@@ -172,7 +176,7 @@ class CourseController extends Controller
     		echo json_encode('guest');
     		exit();
     	}
-    	
+
     	$student=Student::find()->where('id=:id',[':id'=>$student_id])->one();
     	if($student->course_ticket<=0){
     		echo json_encode('no_ticket');
