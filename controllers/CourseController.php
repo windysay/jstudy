@@ -15,8 +15,6 @@ use app\modules\student\models\Student;
 use app\modules\teacher\models\Teacher;
 use app\models\Timetable;
 use yii\data\Pagination;
-use app\modules\admin\models\MaterialPhoto;
-use app\modules\admin\models\MaterialCategory;
 use app\models\MaterialDownload;
 use app\extensions\sendcloud\SendCloud;
 
@@ -143,7 +141,7 @@ class CourseController extends Controller
     }
 
     public function actionTimetable($t){
-	    if(empty(Yii::$app->user->identity->telephone)){
+	    if(empty(Yii::$app->user->identity->mobile)){
 	        Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
 	        return $this->redirect('/student/site/bind-mobile');
         }
