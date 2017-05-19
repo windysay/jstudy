@@ -216,7 +216,7 @@ class SiteController extends Controller
     	$student_id=Yii::$app->user->identity->id;
     	$model=Student::find()->where('id=:id',[':id'=>$student_id])->one();
     	if($model->mobile){
-    		return $this->redirect('replace-mobile');
+            return $this->render('change-mobile', ['model' => $model]);
     	}
     
     	$model->scenario='bind-mobile';
