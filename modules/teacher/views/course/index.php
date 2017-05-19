@@ -65,7 +65,9 @@ $this->title="シフト提出"; //我的课程
 						<td>
 							<?php if($class===null):?>
 								<?php if($week1_can_submit&&$time_begin>time()):?>
-								<p class="time_block no_choose" data-time_begin="<?= $time_begin ?>"  data-time_end="<?= $time_end ?>" data-date="<?= $v1 ?>" title="点击添加" data-toggle="tooltip" data-placement="top"></p>
+                                    <p class="time_block no_choose" data-time_begin="<?= $time_begin ?>"
+                                       data-time_end="<?= $time_end ?>" data-date="<?= $v1 ?>" title="クリックして追加"
+                                       data-toggle="tooltip" data-placement="top"></p>
 								<?php endif;?>
 							<?php elseif($class->status==0):  //管理员已删除?>
 								<p class="time_block overtime">已取消</p>
@@ -118,7 +120,9 @@ $this->title="シフト提出"; //我的课程
 						<td>
 							<?php if($class===null):?>
 								<?php if($week2_can_submit&&$time_begin>time()):?>
-								<p class="time_block no_choose" data-time_begin="<?= $time_begin ?>"  data-time_end="<?= $time_end ?>" data-date="<?= $v2 ?>" title="点击添加" data-toggle="tooltip" data-placement="top"></p>
+                                    <p class="time_block no_choose" data-time_begin="<?= $time_begin ?>"
+                                       data-time_end="<?= $time_end ?>" data-date="<?= $v2 ?>" title="クリックして追加"
+                                       data-toggle="tooltip" data-placement="top"></p>
 								<?php endif;?>
 							<?php elseif($class->status==0):  //管理员已删除?>
 								<p class="time_block overtime">已取消</p>
@@ -162,7 +166,7 @@ $(document).ready(function(){
 		$(this).removeClass('now_choosed glyphicon glyphicon-ok');
 		$(this).addClass('no_choose');
 		$(this).removeClass('save_change');
-		$(this).attr('data-original-title','点击添加');
+        $(this).attr('data-original-title', 'クリックして追加');
 	})
 	 $(".week .confirm_btn").click(function(){
 		 if($(this).hasClass("disabled")){
