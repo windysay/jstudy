@@ -305,7 +305,7 @@ class CaptchaAction extends Action
         }
 
         imagecolordeallocate($image, $foreColor);
-
+        ob_clean();
         ob_start();
         imagepng($image);
         imagedestroy($image);
