@@ -22,7 +22,7 @@ $this->registerCssFile(Yii::$app->homeUrl.'css/teachers-timetable.css',['depends
    			<a href="<?= Url::toRoute(['timetable','t'=>$v['id']]) ?>">
    			<img class="headimg" src="<?= $v['headimg']?Yii::$app->urlManager->hostInfo.'/images/'.$v['headimg']:null ?>">
    			<p class="name"><?= $v['name'] ?></p>
-   			<p class="info"><?= $v['comment'] ?></p>
+                <p class="info" style="text-align: center"><?= $v['comment'] ?></p>
    			</a>
    		</div>
     	<?php endforeach;?>
