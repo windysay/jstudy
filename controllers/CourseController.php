@@ -21,7 +21,7 @@ use app\extensions\sendcloud\SendCloud;
 class CourseController extends Controller
 {
     public $layout='main';
-    
+
     public function init(){
         parent::init();
         $this->getView()->registerCssFile(Yii::$app->homeUrl.'css/site.css');
@@ -36,7 +36,7 @@ class CourseController extends Controller
                 'rules' => [
                     [
                         'actions' => ['ajax-submit-order','ajax-bespeak-class'
-                        		
+
                         ],
                         'allow' => true,
                         'matchCallback' =>function ($rule, $action) {
@@ -64,13 +64,13 @@ class CourseController extends Controller
     			],
     	];
     }
-    
-    
+
+
     public function actionIndex(){
     	$model=CourseMeal::find()->asArray()->orderBy("promotion_price ASC")->all();
     	return $this->render('index',['model'=>$model]);
     }
-    
+
     public function actionAjaxSubmitOrder(){
     	$course_id=Html::encode($_POST['goods_id']);
     	$course	=CourseMeal::findOne($course_id);
@@ -85,7 +85,7 @@ class CourseController extends Controller
 	    	$order->pay_status=0;
 	    	$order->c_name=Yii::$app->user->identity->username?Yii::$app->user->identity->username:Yii::$app->user->identity->email;
 	    	$order->c_mobile=Yii::$app->user->identity->mobile?Yii::$app->user->identity->mobile:Yii::$app->user->identity->skype;
-	    	if($order->save()){ 
+        if ($order->save()) {
 	    		$orderGoods=new OrderGoods;
 	    		$orderGoods->order_sn=$order->order_sn;
 	    		$orderGoods->name=$course->name.'('.$course->course_ticket.'节课)';
@@ -98,8 +98,8 @@ class CourseController extends Controller
 	    		} else echo 0;die;
 	    	}else echo 0;die;
     }
-	
-	public function actionSearch($date=null,$time=null){  //time 1上午  2下午 3晚上
+
+    public function actionSearch($date=null,$time=null){  //time 1上午  2下午 3晚上
 		switch ($time){
 			case 1: $time_begin=$date.' 07:00:00';$time_end=$date.' 11:59:59';break;
 			case 2: $time_begin=$date.' 12:00:00';$time_end=$date.' 18:59:59';break;
@@ -109,19 +109,19 @@ class CourseController extends Controller
 		$time_begin=strtotime($time_begin);
 		$time_end=strtotime($time_end);
 		$course=Timetable::find()->where('start_time>='.$time_begin)->andWhere('end_time<='.$time_end)->orderBy('start_time ASC')->asArray()->all();
-		
-		$tomorrow_begin=Help::getZeroStrtotime('tomorrow');  //明天0点
+
+        $tomorrow_begin=Help::getZeroStrtotime('tomorrow');  //明天0点
 		$week_begin=Help::getZeroStrtotime('week');    //本周第一天0点
 		$two_week_end=$week_begin+3600*24*14-1;    //两个星期的最后一天 23:59:59
-		
-		return $this->render('search',[
+
+        return $this->render('search',[
 			'course' => $course,
 			'tomorrow_begin'=>$tomorrow_begin,
 			'two_week_end'=>$two_week_end,
 		]);
-		
-	}
-    
+
+    }
+
     public function actionTeachers($kw=null)
     {
     	if($kw){   //如果有姓名
@@ -132,8 +132,8 @@ class CourseController extends Controller
     	}
     	$pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'20']);
     	$teachers = $data->offset($pages->offset)->limit($pages->limit)->all();
-    
-    	return $this->render('teachers',[
+
+        return $this->render('teachers',[
     			'pages' => $pages,
     			'count'=>$data->count(),
     			'teachers'=>$teachers,
@@ -141,6 +141,10 @@ class CourseController extends Controller
     }
 
     public function actionTimetable($t){
+        if (Yii::$app->user->identity->status == 0) {
+            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号');
+            return $this->redirect('/site/index');
+        }
 	    if(empty(Yii::$app->user->identity->mobile)){
 	        Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
 	        return $this->redirect('/student/site/bind-mobile');
@@ -150,14 +154,14 @@ class CourseController extends Controller
     	if($teacher===null){
     		throw new NotFoundHttpException('您访问的页面不存在.');
     	}
-    	 
-    	$weekDay=Timetable::weekDay();
+
+        $weekDay=Timetable::weekDay();
     	$week1=$weekDay['week1'];
     	$week2=$weekDay['week2'];
     	$day_times=Timetable::dayClassTime(); //用一个数组来存放 一天中每个时间段节点
     	$weekText=Timetable::weekText();
-    	 
-    	return $this->render('timetable',[
+
+        return $this->render('timetable',[
     			'teacher'=>$teacher,
     			'week1'=>$week1,
     			'week2'=>$week2,
@@ -165,7 +169,7 @@ class CourseController extends Controller
     			'weekText'=>$weekText,
     	]);
     }
-   
+
     public function actionAjaxBespeakClass(){   //学生选课
     	$id=Yii::$app->request->post('id');  //课程id
     	$id=Html::encode($id);
@@ -189,10 +193,10 @@ class CourseController extends Controller
     	$class->student_id=$student->id;
     	$student->scenario='course_ticket';
     	$student->course_ticket-=1;
-    	
-    	$teacher=Teacher::find()->where('id=:id',[':id'=>$class->teacher_id])->one();
-    	
-    	$transaction=Yii::$app->db->beginTransaction();  //开始事务
+
+        $teacher=Teacher::find()->where('id=:id',[':id'=>$class->teacher_id])->one();
+
+        $transaction=Yii::$app->db->beginTransaction();  //开始事务
     	if( $class->save()&&$student->save()){
     		$transaction->commit();
     		// 要发信息通知老师
@@ -204,10 +208,10 @@ class CourseController extends Controller
     		$label='bespeak-class';   //邮件标签
     		$send_res=json_decode(SendCloud::send_mail($mail, $subject, $html,$label),true);
     		if($send_res['message']=='success'){
-    			
-    		}else{
-    			
-    		}
+
+            }else{
+
+            }
     		echo json_encode('success');
     	}else{
     		$transaction->rollBack();
@@ -224,7 +228,7 @@ class CourseController extends Controller
     	}
     	return $this->render('download',['model'=>$model,'pages'=>$pages,'count'=>$data->count()]);
     }
-    
+
     public function actionFileDownload($link){
     	$link=Html::encode($link);
     	$file='../web/uploads/'.$link;
@@ -233,5 +237,5 @@ class CourseController extends Controller
     	header("Content-Length: ". filesize($file));
     	readfile($file);
     }
-    
+
 }

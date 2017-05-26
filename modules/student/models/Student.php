@@ -115,15 +115,10 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
             'monetary' => '消费金额',
             'integral' => '积分',
             'createtime' => '创建时间',
-        	'oldPassword' => '原密码',
-        	'newPassword' => '新密码',
-        	'confirmPassword' => '确认密码',
-        	'confirmNewPassword' => '确认密码',
-        		
-        	'oldPassword' => '原密码',
-        	'newPassword' => '新密码',
-        	'confirmPassword' => '确认密码',
-        	'confirmNewPassword' => '确认密码',
+            'oldPassword' => '原密码（※）',
+            'newPassword' => '新密码（※）',
+            'confirmPassword' => '确认密码（※）',
+            'confirmNewPassword' => '确认密码（※）',
         		
         	'phoneCode'=>'验证码',  //手机
         	'code'=>'验证码',  //邮箱
@@ -154,7 +149,7 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
     {
     	if (parent::beforeSave($insert)) {
     		if($this->isNewRecord){
-    			$this->status=1;
+                $this->status = 0;
     			$this->grade=1;
     			$this->sex=0;
     			$this->buy_ticket=0;
