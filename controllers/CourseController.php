@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Controller;
 use app\models\CourseMeal;
 use yii\helpers\Html;
@@ -17,6 +18,7 @@ use app\models\Timetable;
 use yii\data\Pagination;
 use app\models\MaterialDownload;
 use app\extensions\sendcloud\SendCloud;
+use yii\web\NotFoundHttpException;
 
 class CourseController extends Controller
 {
@@ -141,8 +143,11 @@ class CourseController extends Controller
     }
 
     public function actionTimetable($t){
-        if (Yii::$app->user->identity->status == 0) {
-            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号');
+        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == 0) {
+            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱');
+            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
+            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
+            SendCloud::send_mail(Yii::$app->user->identity->email, '激活iperapera账号', $content, '激活账号');
             return $this->redirect('/site/index');
         }
 	    if(empty(Yii::$app->user->identity->mobile)){

@@ -60,7 +60,7 @@ class TeacherController extends Controller
             } else //匹配名字
                 $data = Teacher::find()->where(['like', 'name', $keywords])->andWhere(['status' => 1]);
         } else {
-            $data = Teacher::find();
+            $data = Teacher::find()->where(['status' => 1]);
         }
         $pages = new Pagination(['totalCount' => $data->count(), 'pageSize' => '30']);
         $model = $data->offset($pages->offset)->limit($pages->limit)->orderBy('createtime DESC')->all();
@@ -376,7 +376,7 @@ class TeacherController extends Controller
                     $model->start_time=$time_begin_arr[$k];
                     $model->end_time=$time_end_arr[$k];
                     $model->status=1;
-                }
+                }`
                 if($model->save()){
                     $save_count++;
                 }

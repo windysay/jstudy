@@ -118,10 +118,10 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    // $config['bootstrap'][] = 'debug';//网页最下面的调试版块
-    // $config['modules']['debug'] = [//网页最下面的调试版块
-    //     'class' => 'yii\debug\Module',
-    // ];
+    $config['bootstrap'][] = 'debug';//网页最下面的调试版块
+    $config['modules']['debug'] = [//网页最下面的调试版块
+        'class' => 'yii\debug\Module',
+    ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [

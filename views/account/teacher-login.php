@@ -27,7 +27,9 @@ $this->title="講師登録";
                      	<input class="xuanzhe_box"  type="checkbox" id="loginform-rememberme"  checked="checked">
                          保持登録
                   </label>
-				    <p class="forget_pswd"><a class="color_blue"  href="<?=Url::toRoute('account/forget-password-email'); ?>">パスワードを忘れて？</a></p>
+                    <p class="forget_pswd"><a class="color_blue"
+                                              href="<?= Url::toRoute('account/forget-password-email'); ?>">パスワードを忘れた？</a>
+                    </p>
 				</div>
                 <div class="w_group_submit">
                     <?= Html::submitButton('登録', ['class' => 'btn my_submit', 'name' => 'login-button']) ?>

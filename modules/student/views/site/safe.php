@@ -91,7 +91,11 @@ $this->title='账户安全';
 	          <div class="caozuo box"><span><?= Html::a('立即绑定', ['mail-validate'], ['class' =>'']) ?></span></div>
 	      <?php else: ?>
 	          <div class="info box">您已验证的邮箱：<b><?= $model->email ?></b></div>
-	          <div class="caozuo box"><span>不可修改</span> </div>
+              <?php if (Yii::$app->user->identity->status == 0) : ?>
+
+              <?php else : ?>
+                  <div class="caozuo box"><span>不可修改</span></div>
+              <?php endif; ?>
 	      <?php endif; ?>
 	      </li>
 	      <li class="hide">

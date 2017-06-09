@@ -191,7 +191,7 @@ class AccountController extends Controller
             $user = $model;
             Yii::$app->user->login($user, 3600 * 24 * 30);
             Yii::$app->session->setFlash('register_success', "请去您的注册邮箱，激活账号!");
-            $url = Url::toRoute(['active', 'user_id' => Yii::$app->user->id]);
+            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
             $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
             SendCloud::send_mail($user->email, '激活iperapera账号', $content, '激活账号');
             return $this->redirect(['student/site/index']);
