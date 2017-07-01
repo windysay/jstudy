@@ -110,7 +110,7 @@ class SmsUcpaas extends \yii\db\ActiveRecord
         if($code_type=="2"){  //如果验证码类型是语音验证码
             $ucpaasRes=$ucpaas->voiceCode($code,$phone);  //发送语音验证码  返回格式为 {"resp":{"respCode":"000000","voiceCode":{"callId":"f7c91b106c036fb4997bd918339f42cd","createDate":"20150611150016"}}}
         }else{   //否则就是短信验证码  
-            $param=$code.",5"; // $param类型为字符串  用于替换短信模板里的参数   （ 您的验证码为  $code，5分钟内有效）
+            $param=$code; // $param类型为字符串  用于替换短信模板里的参数   （ 您的验证码为  $code，5分钟内有效）
             $ucpaasRes=$ucpaas->templateSMS($phone,$param);  //发送短信验证码  返回格式为  {"resp":{"respCode":"000000","templateSMS":{"createDate":"20150611150237","smsId":"1e8e2b11f30a80429cb6ad994ebbd9e6"}}}
         }
         $res=json_decode($ucpaasRes,true);

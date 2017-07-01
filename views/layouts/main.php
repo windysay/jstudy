@@ -123,11 +123,6 @@ AppAsset::register($this);
 <script>
 <?php $this->beginBlock('MY_VIEW_JS_END') ?>
 $(document).ready(function(){
-
-	$("img").error(function() {
-		$(this).attr("src", "<?=Yii::$app->urlManager->baseUrl.'/images/basic/basic_header.jpg' ?>");
-	});
-
 	$('.my_site_menu_dropdown').dropdownHover();
 	 $('*[data-toggle="tooltip"]').tooltip();
 	 $('*[data-toggle="popover"]').popover();
