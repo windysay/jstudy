@@ -18,15 +18,14 @@ class Ucpaas
   
     const BaseUrl = "https://api.ucpaas.com/";  //API请求地址
 
-    const ACCOUNTSID="eca7a188845f699537676e0045e89db8";  //string  开发者账号ID。由32个英文字母和阿拉伯数字组成的开发者账号唯一标识符。
+    const ACCOUNTSID="5c680bc9a8b8433aa8f97aa9be843eae";  //string  开发者账号ID。由32个英文字母和阿拉伯数字组成的开发者账号唯一标识符。
     
-    const TOKEN="17789f61531727342f95ddff5767db71";  //string  开发者账号TOKEN  
+    const TOKEN="45d36ad9c95b8be73d84be9f1e3c2bfb";  //string  开发者账号TOKEN
  
-    const SEND_CODE_APPID="3f71c26318e64b2f80dc75a8800c3540";  //发送验证码 /语音验证码     应用id
+    const SEND_CODE_APPID="a0dbfcdd474149a8a217e3d4f8576583";  //发送验证码 /语音验证码     应用id
     
-    const SEND_CODE_TMP_ID="8219";  //发送验证/语音验证码的模板id
-//  const SEND_CODE_TMP_ID="7873";  //发送验证/语音验证码的模板id  这个是旧的 已经被删除 但是还可以用 
-    
+    const SEND_CODE_TMP_ID="86439";  //发送验证/语音验证码的模板id
+
     private $timestamp; // string 时间戳
 
     /**
