@@ -152,7 +152,7 @@ foreach ($timeTable2 as $class) {
         $(document).ready(function () {
             $(".choosed").click(function () {
                 var id = $(this).attr("data-id");
-                deleteAlertMore(id, '确定预约此课程', 'ajax_bespeak_class');
+                deleteAlertMoreZn(id, '确定预约此课程', 'ajax_bespeak_class');
             })
         });
         function ajax_bespeak_class(obj) {

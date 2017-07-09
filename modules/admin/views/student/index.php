@@ -46,11 +46,13 @@ $this->title="学员档案";
 			      <td>
 			      <?= Html::a('详情',['detail','id'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
 			      <?= Html::a('修改',['edit','id'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
-			      <?= Html::a('课程记录',['record','sid'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
+                      <?= Html::a('课程', ['record', 'sid' => $v['id']], ['class' => '', 'target' => '_blank']) ?> /
 			      <?php if($v['status']==1):?>
-			      <a href="javascript::void(0)" class="deal_account" data-id="<?=$v['id'] ?>" data-type="close">冻结账户</a>
+                      <a href="javascript::void(0)" class="deal_account" data-id="<?= $v['id'] ?>"
+                         data-type="close">冻结</a>
 			      <?php else:?>
-			      <a href="javascript::void(0)" class="deal_account" data-id="<?=$v['id'] ?>" data-type="open">解冻账户</a>
+                      <a href="javascript::void(0)" class="deal_account" data-id="<?= $v['id'] ?>"
+                         data-type="open">解冻</a>
 			      <?php endif;?>
 			      </td>
 			    </tr>

@@ -30,7 +30,7 @@ class Admin extends ActiveRecord implements IdentityInterface
         return [
             [['status', 'salt', 'mobile', 'grade', 'createtime', 'logintime'], 'integer'],
             [['username', 'password','oldPassword','confirmNewPassword','newPassword', 'email'], 'required','message'=>"{attribute}不能为空"],
-            [['username', 'admin_name'], 'string', 'max' => 20],
+            [['username', 'admin_name'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 64],
             [['email'], 'string', 'max' => 40],
             ['email', 'email','message'=>'请输入正确的邮箱'],

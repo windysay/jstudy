@@ -54,7 +54,7 @@ class Teacher extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['name', 'password', 'email', 'confirmPassword','oldPassword','newPassword','confirmNewPassword','code','info' ], 'required','message'=>"请输入{attribute}"],
             [['status', 'salt', 'mobile', 'sex',], 'integer','message'=>'{attribute}必须为数字'],
-            [['username', 'wechat'], 'string', 'max' => 20],
+            [['username', 'wechat'], 'string', 'max' => 32],
             [['email'], 'string', 'max' => 40],
             [['password'], 'string', 'max' => 64],
             [['name', 'skype'], 'string', 'max' => 30],

@@ -241,6 +241,7 @@
 	width:110px;
 	margin-top:50px;
 	margin-left:27px;
+	border-radius: 100%;
 }
 .site-index .roll_pictrue .thumbnail .caption .teacher_name{
 	color:#e7484c;

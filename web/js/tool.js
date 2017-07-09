@@ -37,6 +37,18 @@ function deleteAlertMore(id,tool,function_name){//删除提示框,用于一张�
    }
 }
 
+function deleteAlertMoreZn(id, tool, function_name) {//删除提示框,用于一张页面有多个动作要调用提示框
+    if ($(".w_ajax_delete_box").length > 0) {//如果已经存在
+        $(".ok_btn").attr("data-id", id)
+        $(".ok_btn").attr("onclick", function_name + '(this)')
+        $(".modal_header_tool").text(tool)
+        $('.w_ajax_delete_box').modal()
+    } else {
+        $('body').after('<div class="modal fade bs-example-modal-sm w_ajax_delete_box" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header modal_header_tool" >' + tool + '</div><div class="modal-body"><button type="button"  class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 btn btn-success ok_btn" data-id="' + id + '"  onclick="' + function_name + '(this)"  data-toggle="modal" data-target=".bs-example-modal-sm">确认</button><button type="button" class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 btn btn-warning no_btn"  onclick="no_btn(this)" data-toggle="modal"  data-target=".bs-example-modal-sm">重选</button> </div></div></div></div>')
+        $('.w_ajax_delete_box').modal()
+    }
+}
+
 function nowWarnBeij(status,tool,url){//成功还是失败 提示语 跳转地址【废弃】
 	$("#alert_beij_div").remove()
 	if(status==1){//成功

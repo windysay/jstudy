@@ -16,7 +16,7 @@ $this->title="講師登録";
         <div class="right_box">
             <p class="title_p">講師登録</p>
             <?php $form = ActiveForm::begin(['id' => 'login-form']);?>
-                <?= $form->field($model, 'username')->textInput(['placeholder'=>"電子メール",'maxlength'=>20]) ?>
+            <?= $form->field($model, 'username')->textInput(['placeholder' => "電子メール", 'maxlength' => 32]) ?>
                 <?= $form->field($model, 'password')->passwordInput(['placeholder'=>"暗号",'maxlength'=>18]); ?>
                 <div class="verifycode_box">
                   <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), ['captchaAction'=>'account/captcha','template' => '<div class="box">{input}<div class="image_box">{image}</div></div>','options'=>['maxlength'=>6,'class'=>'form-control','placeholder'=>'検証コード']]) ?>
