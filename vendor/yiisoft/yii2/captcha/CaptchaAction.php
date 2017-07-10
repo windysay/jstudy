@@ -278,6 +278,8 @@ class CaptchaAction extends Action
         imagefilledrectangle($image, 0, 0, $this->width - 1, $this->height - 1, $backColor);
         imagecolordeallocate($image, $backColor);
 
+        ob_clean();
+
         if ($this->transparent) {
             imagecolortransparent($image, $backColor);
         }
@@ -305,7 +307,6 @@ class CaptchaAction extends Action
         }
 
         imagecolordeallocate($image, $foreColor);
-        if(YII_ENV_PROD) ob_start();
         imagepng($image);
         imagedestroy($image);
 
