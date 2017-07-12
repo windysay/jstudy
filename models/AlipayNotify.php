@@ -136,20 +136,21 @@ class AlipayNotify extends \yii\db\ActiveRecord
 //     	$userbalance->u_balance+=$moneydetail->total_fee;
 //     	if(!$userbalance->update())//如果更新不成功
 //     		return false;
-     	$member=Student::findOne($order['student_id']);
-    	if(!$member)
-    		return false;
-    	$member->scenario='monetary-integral';   //增加用户的
-    	$member->monetary+=$moneydetail->total_fee;
-    	$member->integral+=round($moneydetail->total_fee);
-    	$coursemeal=\app\models\CourseMeal::find()->where('id=:id',[":id"=>2])->one();
-    	$member->buy_ticket+=$coursemeal->course_ticket;
-    	$member->course_ticket+=$coursemeal->course_ticket;
+        $member = Student::findOne(['id' => $order->student_id]);
+//    	$member->scenario='monetary-integral';   //增加用户的
+        $member->monetary = round($member->monetary + $moneydetail->total_fee, 2);
+        $member->integral = round($member->integral + $moneydetail->total_fee);
+        $coursemeal = \app\models\CourseMeal::find()->where('id=:id', [":id" => $order->course_id])->one();
+        $member->buy_ticket = $member->buy_ticket + $coursemeal->course_ticket;
+        $member->course_ticket = $member->course_ticket + $coursemeal->course_ticket;
 //    	$coursemeal->sales=$coursemeal->sales+1;
-    	if(!$moneydetail->save() &&!$member->update() /* &&!$coursemeal->update() */)
-    		return false; 
-    	else
+        if (!$moneydetail->save() && !$member->save(false)/* &&!$coursemeal->update() */) {
+            if ($moneydetail->hasErrors()) Yii::error(json_encode($moneydetail->errors));
+            if ($member->hasErrors()) Yii::error(json_encode($member->errors));
+            return false;
+        } else {
     		return true;
+        }
     }
     
     
