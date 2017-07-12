@@ -123,7 +123,6 @@ class AlipayController extends Controller{//支付宝支付控制器
                $transaction->commit();
             }
           }catch (Exception $e) {
-          	 var_dump($alipay->errors);exit();
              $transaction->rollBack();
           }
         }else echo 0;
