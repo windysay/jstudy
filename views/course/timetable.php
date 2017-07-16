@@ -166,6 +166,12 @@ foreach ($timeTable2 as $class) {
                 success: function (msg) {//如果调用php成功,注意msg是返回的对象，这个你可以自定义
                     if (msg == 'guest') {
                         warn('请先登录', 0);
+                    } else if (msg == 'email_active') {
+                        var url = '<?= Url::toRoute('/site/index')?>';
+                        warnRedirect('选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱', 1, url);
+                    } else if (msg == 'telephone_bind') {
+                        var url = '<?= Url::toRoute('/student/site/bind-mobile')?>';
+                        warnRedirect('选课前，请先绑定手机号码', 1, url);
                     } else if (msg == 'success') {
                         var url = window.location.href;
                         warnRedirect('预约成功', 1, url);

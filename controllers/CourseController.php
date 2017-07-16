@@ -166,17 +166,7 @@ class CourseController extends Controller
         if ($teacher === null) {
             throw new NotFoundHttpException('您访问的页面不存在.');
         }
-        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == 0) {
-            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱');
-            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
-            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
-            SendCloud::send_mail(Yii::$app->user->identity->email, '激活iperapera账号', $content, '激活账号');
-            return $this->redirect('/site/index');
-        }
-        if (empty(Yii::$app->user->identity->mobile)) {
-            Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
-            return $this->redirect('/student/site/bind-mobile');
-        }
+
         $weekDay = Timetable::weekDay();
         $week1 = $weekDay['week1'];
         $week2 = $weekDay['week2'];
@@ -206,6 +196,21 @@ class CourseController extends Controller
         if ($student->course_ticket <= 0) {
             echo json_encode('no_ticket');
             exit();
+        }
+        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == 0) {
+//            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱');
+            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
+            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
+            SendCloud::send_mail(Yii::$app->user->identity->email, '激活iperapera账号', $content, '激活账号');
+            echo json_encode('email_active');
+            exit();
+            //            return $this->redirect('/site/index');
+        }
+        if (empty(Yii::$app->user->identity->mobile)) {
+            Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
+            echo json_encode('telephone_bind');
+            exit();
+//            return $this->redirect('/student/site/bind-mobile');
         }
         $class = Timetable::find()->where('id=:id AND status=:status', [':id' => $id, ':status' => 1])->andWhere('start_time>' . time())->one();
         if ($class === null) {
