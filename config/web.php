@@ -31,6 +31,8 @@ $config = [
         'user' => [//学生会员
             'identityClass' => 'app\modules\student\models\Student',
             'enableAutoLogin' => true,
+            'authTimeout' => 7200,
+            'identityCookie' => ['name' => '__user_identity', 'httpOnly' => true],
             'loginUrl' => ['account/choice-login'],//如何没有登录就跳转到这个链接
 //            'returnUrl'=>Yii::$app->request->referrer,//登录后跳转的网址
             'idParam' => '__user'
@@ -39,6 +41,8 @@ $config = [
             'class' => '\yii\web\User',
             'identityClass' => 'app\modules\admin\models\Admin',
             'enableAutoLogin' => true,
+            'authTimeout' => 7200,
+            'identityCookie' => ['name' => '__admin_identity', 'httpOnly' => true],
             'loginUrl' => ['account/admin-login'],//如何没有登录就跳转到这个链接
             'returnUrl' => ['admin/site/index'],//登录后跳转的网址
             'idParam' => '__admin'
@@ -47,6 +51,8 @@ $config = [
             'class' => '\yii\web\User',
             'identityClass' => 'app\modules\teacher\models\Teacher',
             'enableAutoLogin' => true,
+            'authTimeout' => 7200,
+            'identityCookie' => ['name' => '__teacher_identity', 'httpOnly' => true],
             'loginUrl' => ['account/teacher-login'],//如何没有登录就跳转到这个链接
             'returnUrl' => ['teacher/student/index'],//登录后跳转的网址
             'idParam' => '__teacher'
