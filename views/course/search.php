@@ -86,7 +86,7 @@ $(document).ready(function(){
     })
     $(".bespeak_btn").click(function(){
 		var id=$(this).attr("data-id");
-		deleteAlertMore(id,'确定预约此课程','ajax_bespeak_class');
+        deleteAlertMoreZn(id, '确定预约此课程', 'ajax_bespeak_class');
 	})
 })	
 	function ajax_bespeak_class(obj){

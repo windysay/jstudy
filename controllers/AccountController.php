@@ -100,10 +100,23 @@ class AccountController extends Controller
             return $this->redirect(Url::toRoute("student/site"));
         }
         $model = new LoginForm('student');
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            //	return $this->redirect(['student/site/index']);
-            return $this->redirect(Yii::$app->request->referrer);
-            //	return $this->goBack();
+        if ($model->load(Yii::$app->request->post())) {
+            $username = Yii::$app->request->post('LoginForm')['username'];
+            $student = Student::find()->where(['email' => $username])->orWhere(['username' => $username])->one();
+            if ($student->status == 0) {
+                Yii::$app->session->setFlash('error', "你的账户已被冻结!");
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            } else {
+                if ($model->login()) {
+                    return $this->redirect(['student/site/index']);
+                } else {
+                    return $this->render('login', [
+                        'model' => $model,
+                    ]);
+                }
+            }
         } else {
             return $this->render('login', [
                 'model' => $model,

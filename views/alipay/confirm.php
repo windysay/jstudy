@@ -14,7 +14,7 @@ $this->title="课程套餐定制确认";
    <div class="order_info clearfix">
     <div class="box t_info">
       <div class="gou_box"><img  src="<?=Yii::$app->homeUrl.'images/basic/gou_icon.png' ?>" /></div>
-      <h2 class="t2">您的订单已经提交成功，爽快的付款吧！</h2>
+        <h2 class="t2">您的订单已提交成功，等待付款中哦！</h2>
       <p class="jine_p">应付金额 : <span>￥<?=Help::xiaoshu($order['total_pay'])?></span></p>
    </div>
 

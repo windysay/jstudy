@@ -57,7 +57,7 @@ class LoginForm extends Model
  
     public function login(){//会员登录
         if($this->validate()) {//validate() 执行数据验证(rules)。默认验证的属性名称列表，任何属性中列出适用的验证规则应该验证。
-            return Yii::$app->user->login($this->getUser(),$this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 2 : 0);
         } else {
             return false;
         }
@@ -65,14 +65,14 @@ class LoginForm extends Model
 
     public function teacherLogin(){//老师登录
         if($this->validate()) {//validate() 执行数据验证(rules)。默认验证的属性名称列表，任何属性中列出适用的验证规则应该验证。
-            return Yii::$app->teacher->login($this->getUser(),$this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->teacher->login($this->getUser(), $this->rememberMe ? 3600 * 2 : 0);
         } else {
             return false;
         }
     }
     public function adminLogin(){//管理员登录
         if($this->validate()) {//validate() 执行数据验证(rules)。默认验证的属性名称列表，任何属性中列出适用的验证规则应该验证。
-            return Yii::$app->admin->login($this->getUser(),$this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->admin->login($this->getUser(), $this->rememberMe ? 3600 * 2 : 0);
         } else {
             return false;
         }

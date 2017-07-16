@@ -18,7 +18,7 @@ $this->title="已预约课程";
 $(document).ready(function(){
 		$(".cancel_bespeaked").click(function(){
 			var id=$(this).attr("data-id");
-			deleteAlertMore(id,'确定取消该课程的预约','ajax_cancel_bespeaked');
+            deleteAlertMoreZn(id, '确定取消该课程的预约', 'ajax_cancel_bespeaked');
 		})
 })	
 		function ajax_cancel_bespeaked(obj){
