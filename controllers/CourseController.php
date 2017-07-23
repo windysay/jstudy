@@ -2,22 +2,22 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
-use yii\helpers\Url;
-use yii\web\Controller;
-use app\models\CourseMeal;
-use yii\helpers\Html;
-use app\modules\student\models\Order;
 use app\components\Help;
+use app\extensions\sendcloud\SendCloud;
+use app\models\CourseMeal;
+use app\models\MaterialDownload;
+use app\models\Timetable;
 use app\modules\student\components\StudentCheckAccess;
+use app\modules\student\models\Order;
 use app\modules\student\models\OrderGoods;
 use app\modules\student\models\Student;
 use app\modules\teacher\models\Teacher;
-use app\models\Timetable;
+use Yii;
 use yii\data\Pagination;
-use app\models\MaterialDownload;
-use app\extensions\sendcloud\SendCloud;
+use yii\filters\AccessControl;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class CourseController extends Controller
@@ -145,9 +145,9 @@ class CourseController extends Controller
     {
         if ($kw) {   //如果有姓名
             $keywords = Html::encode($kw);
-            $data = Teacher::find()->where(['like', 'name', $keywords])->andWhere('status!=0')->orderBy('createtime DESC');
+            $data = Teacher::find()->where(['like', 'name', $keywords])->andWhere(['status' => Teacher::STATUS_ACTIVE])->orderBy('createtime DESC');
         } else {
-            $data = Teacher::find()->where('status!=0')->orderBy('createtime DESC');
+            $data = Teacher::find()->where(['status' => Teacher::STATUS_ACTIVE])->orderBy('createtime DESC');
         }
         $pages = new Pagination(['totalCount' => $data->count(), 'pageSize' => '20']);
         $teachers = $data->offset($pages->offset)->limit($pages->limit)->all();
@@ -197,7 +197,7 @@ class CourseController extends Controller
             echo json_encode('no_ticket');
             exit();
         }
-        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == 0) {
+        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == Student::STATUS_NOACTIVE) {
 //            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱');
             $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
             $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";

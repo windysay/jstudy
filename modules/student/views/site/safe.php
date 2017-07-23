@@ -1,6 +1,7 @@
 <?php
+
+use app\modules\student\models\Student;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 $this->title='账户安全';
 ?>
@@ -91,7 +92,7 @@ $this->title='账户安全';
 	          <div class="caozuo box"><span><?= Html::a('立即绑定', ['mail-validate'], ['class' =>'']) ?></span></div>
 	      <?php else: ?>
 	          <div class="info box">您已验证的邮箱：<b><?= $model->email ?></b></div>
-              <?php if (Yii::$app->user->identity->status == 0) : ?>
+              <?php if (Yii::$app->user->identity->status == Student::STATUS_DISABLE) : ?>
 
               <?php else : ?>
                   <div class="caozuo box"><span>不可修改</span></div>

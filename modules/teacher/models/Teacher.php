@@ -3,8 +3,9 @@
 namespace app\modules\teacher\models;
 
 use Yii;
-use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
+use yii\web\IdentityInterface;
+
 /**
  * This is the model class for table "{{%teacher}}".
  *
@@ -37,6 +38,9 @@ class Teacher extends \yii\db\ActiveRecord implements IdentityInterface
 	public $confirmNewPassword;//确定新密码
 	
 	public $authKey;//此属性必须填写，yii user必填属性
+
+    const STATUS_ACTIVE = 1;  //默认
+    const STATUS_DISABLE = 0;
 	
 	/**
 	 * @inheritdoc

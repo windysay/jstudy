@@ -2,8 +2,6 @@
 
 namespace app\modules\admin\models;
 
-use Yii;
-
 /**
  * This is the model class for table "{{%material_photo}}".
  *
@@ -21,9 +19,10 @@ use Yii;
  */
 class MaterialPhoto extends \yii\db\ActiveRecord
 {
-	
-	const SHOWCOVER=1;
-	const HIDECOVER=0;
+
+    const SHOWCOVER = 1;
+    const HIDECOVER = 0;
+
     /**
      * @inheritdoc
      */
@@ -38,7 +37,7 @@ class MaterialPhoto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['catid', 'show_cover','coverurl'], 'required','message'=>'{attribute}必填'],
+            [['catid', 'show_cover', 'coverurl'], 'required', 'message' => '{attribute}必填'],
             [['catid', 'type', 'show_cover', 'createtime', 'updatetime'], 'integer'],
             [['description', 'content'], 'string'],
             [['title'], 'string', 'max' => 40],
@@ -66,31 +65,33 @@ class MaterialPhoto extends \yii\db\ActiveRecord
             'updatetime' => 'Updatetime',
         ];
     }
-    
-    public function beforeSave($insert){
-    	if (parent::beforeSave($insert)) {
-    		if($this->isNewRecord){
-    			$this->createtime=time();
-    			$this->updatetime=time();
-    		}
-    		else{
-    			$this->updatetime=time();
-    		}
-    		return true;
-    	} else {
-    		return false;
-    	}
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->createtime = time();
+                $this->updatetime = time();
+            } else {
+                $this->updatetime = time();
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    public function scenarios(){
-    	$scenarios=parent::scenarios();
-    	$scenarios['contact']=['title','author','content'];
-    	return $scenarios;
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['contact'] = ['title', 'author', 'content'];
+        return $scenarios;
     }
-    
-    public static function showCoverList(){//是否显示封面图片选择列表
-    	return [self::SHOWCOVER=>'显示封面图片',self::HIDECOVER=>'不显示封面图片'];
+
+    public static function showCoverList()
+    {//是否显示封面图片选择列表
+        return [self::SHOWCOVER => '显示封面图片', self::HIDECOVER => '不显示封面图片'];
     }
-    
-    
+
+
 }

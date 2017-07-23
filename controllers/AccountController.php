@@ -103,7 +103,8 @@ class AccountController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $username = Yii::$app->request->post('LoginForm')['username'];
             $student = Student::find()->where(['email' => $username])->orWhere(['username' => $username])->one();
-            if ($student->status == 0) {
+            /** @var $student Student */
+            if ($student->status == Student::STATUS_DISABLE) {
                 Yii::$app->session->setFlash('error', "你的账户已被冻结!");
                 return $this->render('login', [
                     'model' => $model,
@@ -133,7 +134,7 @@ class AccountController extends Controller
         $model = new LoginForm('teacher');
         if ($model->load(Yii::$app->request->post())) {
             $teacher = Teacher::findOne(['email' => Yii::$app->request->post('LoginForm')['username']]);
-            if ($teacher->status == 1) {  //未冻结
+            if ($teacher->status == Teacher::STATUS_ACTIVE) {  //未冻结
                 if ($model->teacherLogin()) {
                     return $this->redirect(['teacher/site/index']);
                 } else {
@@ -224,7 +225,7 @@ class AccountController extends Controller
     {
         $user_id = $_GET['user_id'];
         $user = Student::findOne($user_id);
-        $user->status = 1;
+        $user->status = Student::STATUS_ACTIVE;
         $user->scenario = 'status';
         if ($user->save(false)) {
             Yii::$app->session->setFlash('register_success', "恭喜，账号激活成功,赠送您一张上课券!");
