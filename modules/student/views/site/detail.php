@@ -1,6 +1,5 @@
-<?php 
+<?php
 
-use yii\helpers\Url;
 $this->title="讲师档案详情";
 ?>
 <style>
@@ -47,13 +46,10 @@ $this->title="讲师档案详情";
     		<img class="headimg" alt="" src="<?= $model['headimg']?Yii::$app->homeUrl.'images/'.$model['headimg']:null ?>" style="display: block;max-width: 220px;margin: 50px auto">
     	</div>
     	<div class="teacher_info_right pull-right">
-    		<p><label>ID：</label><?= 'No.'.$model['id']?></p>
     		<p><label>姓名：</label><?= $model['name']?></p>
-    		<p><label>邮箱：</label><?= $model['email']?></p>
     		<p><label>性别：</label><?= $model['sex']?"男":"女"?></p>
     		<p><label>Skype：</label><?= $model['skype']?></p>
             <p><label>QQ：</label><?= $model['qq']?></p>
-       		<p><label>注册时间：</label><?= date("Y-m-d h:i:s",$model['createtime'])?></p>
     		<p><label style="margin-bottom:5px;">讲师介绍：</label><br><?= $model['info']?></p>
     	</div>
     </div>

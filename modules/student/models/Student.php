@@ -152,7 +152,7 @@ class Student extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_time',
+                'createdAtAttribute' => 'createtime',
                 'updatedAtAttribute' => false,
                 'value' => time()
             ],
