@@ -164,6 +164,7 @@ foreach ($timeTable2 as $class) {
                 data: {"id": id},
                 cache: false,
                 success: function (msg) {//如果调用php成功,注意msg是返回的对象，这个你可以自定义
+                    console.log(msg);
                     if (msg == 'guest') {
                         warn('请先登录', 0);
                     } else if (msg == 'email_active') {

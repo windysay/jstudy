@@ -35,12 +35,12 @@
 }
 .teacher_list .per_teacher .headimg{
 	width:180px;
-	height:120px;
+	height: 180px;
 	display:block;
 	margin:0 auto;
-	border-radius:5px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
 }
 .teacher_list .per_teacher .name{
 	height:40px;
@@ -148,7 +148,6 @@
 	border:solid 1px #ccc;
 }
 .timetable_list .time_info .choosed{
-	background:;
 	color:#000;
 
 }

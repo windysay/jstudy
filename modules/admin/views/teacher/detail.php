@@ -13,8 +13,8 @@ $this->title="讲师档案详情";
     		<p><label>姓名：</label><?= $model['name']?></p>
     		<p><label>性别：</label><?= $model['sex']?"男":"女"?></p>
     		<p><label>Skype：</label><?= $model['skype']?></p>
-            <p><label>QQ：</label><?= $model['qq']?></p>         
-    		<p><label>状态：</label><?= $model['status']==1?'正常使用中':'冻结中'?></p>
+            <p><label>QQ：</label><?= $model['qq']?></p>
+            <p><label>状态：</label><?= $model['status'] == 1 ? '正常使用中' : '冻结' ?></p>
     		<p><label style="margin-bottom:5px;">讲师介绍：</label><br><?= $model['info']?></p>
     	</div>
     </div>

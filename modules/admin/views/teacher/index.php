@@ -38,7 +38,7 @@ $this->title="讲师档案";
 		      <td><?= $v['sex']==1?"男":"女"?></td>
 		      <td><?= $v['email'] ?></td>
 		      <td><?= $v['skype'] ?></td>
-		      <td><?= $v['status']==1?"正常":"冻结中" ?></td>
+                <td><?= $v['status'] == 1 ? "正常" : "冻结" ?></td>
 		      <td>
 			  <?= Html::a('详情',['detail','id'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
 			  <?= Html::a('修改',['edit','id'=>$v['id']],['class'=>'']) ?> /

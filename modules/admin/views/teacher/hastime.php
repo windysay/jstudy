@@ -36,7 +36,7 @@ $this->title="已提交课程讲师";
 		      <td><?= $teacher['sex']==1?"男":"女"?></td>
 		      <td><?= $teacher['email'] ?></td>
 		      <td><?= $teacher['skype'] ?></td>
-		      <td><?= $teacher['status']==1?"正常":"冻结中" ?></td>
+                <td><?= $teacher['status'] == 1 ? "正常" : "冻结" ?></td>
 		      <td>
 			  <?= Html::a('已提交时间表',['timetable','t'=>$teacher['id']],['class'=>'','target'=>'_blank']) ?> 
 		      </td>

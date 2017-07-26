@@ -23,7 +23,7 @@ $this->title="学员档案详情";
     		<p><label>日语程度：</label><?= $model['chengdu']?></p>
             <p><label>学习目的：</label><?= $model['xueximudi']?></p>
             <p><label>Skype：</label><?= $model['skype']?></p>
-    		<p><label>状态：</label><?= $model['status']==1?'正常使用中':'冻结中'?></p>
+            <p><label>状态：</label><?= $model['status'] == 1 ? '正常使用中' : '冻结' ?></p>
        		<p><label>注册时间：</label><?= date("Y-m-d h:i:s",$model['createtime'])?></p>
     	</div>
     </div>

@@ -42,7 +42,7 @@ $this->title="学员档案";
 			      <td><?= $v['mobile'] ?></td>
 			      <td><?= $v['skype'] ?></td>
 			      <td><?= $v['course_ticket'].'/'.$v['buy_ticket']?></td>
-			      <td><?= $v['status']==1?"正常":"冻结中" ?></td>
+                    <td><?= $v['status'] == 1 ? "正常" : "冻结" ?></td>
 			      <td>
 			      <?= Html::a('详情',['detail','id'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
 			      <?= Html::a('修改',['edit','id'=>$v['id']],['class'=>'','target'=>'_blank']) ?> /
