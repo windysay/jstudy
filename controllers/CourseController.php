@@ -38,7 +38,7 @@ class CourseController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['ajax-submit-order', 'ajax-bespeak-class', 'timetable'
+                        'actions' => ['ajax-submit-order', 'ajax-bespeak-class'
                         ],
                         'allow' => true,
                         'matchCallback' => function ($rule, $action) {
@@ -46,7 +46,7 @@ class CourseController extends Controller
                         },
                     ],
                     [
-                        'actions' => ['index', 'teachers', 'search', 'download', 'file-download'],
+                        'actions' => ['index', 'teachers', 'search', 'download', 'file-download', 'timetable'],
                         'allow' => true,
                     ],
                 ],

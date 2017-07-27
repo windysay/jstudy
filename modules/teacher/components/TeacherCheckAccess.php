@@ -15,7 +15,7 @@ class  TeacherCheckAccess extends Controller
     {//访问权限
         if (!Yii::$app->teacher->id)//如果没有登录 就返回false,然后就要退出到登录界面
             return false;
-        if (Yii::$app->teacher->identity->status == Teacher::STATUS_DISABLE) {
+        if (Yii::$app->teacher->id && Yii::$app->teacher->identity->status == Teacher::STATUS_DISABLE) {
             Yii::$app->session->setFlash('error', '您的账号已经被冻结!');
             header("location: " . Url::toRoute('/account/teacher-logout'));
             exit;

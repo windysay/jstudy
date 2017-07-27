@@ -14,7 +14,7 @@ class  StudentCheckAccess extends Controller
     {
         if (!Yii::$app->user->id)//如果没有登录 就返回false,然后就要退出到登录界面
             return false;
-        if (Yii::$app->user->identity->status == Student::STATUS_DISABLE) {
+        if (Yii::$app->user->id && Yii::$app->user->identity->status == Student::STATUS_DISABLE) {
             Yii::$app->session->setFlash('error', '您的账号已经被冻结!');
             header("location: " . Url::toRoute('/account/logout'));
             exit;
