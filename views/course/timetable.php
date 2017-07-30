@@ -154,7 +154,7 @@ foreach ($timeTable2 as $class) {
                 var id = $(this).attr("data-id");
                 var user_id = '<?= Yii::$app->user->id; ?>';
                 if (!user_id) {
-                    alert('请先登录哦!');
+                    warn('请先登录哦！', 0);
                     return;
                 }
                 deleteAlertMoreZn(id, '确定预约此课程', 'ajax_bespeak_class');

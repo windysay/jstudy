@@ -3,6 +3,16 @@ namespace app\components;
 
 class  Help{//帮助类 调用方式类似 Help::orderSn();
 
+    public static function getWeekTime($time, $tag = 'start')
+    {
+        $ret = array();
+        $timestamp = $time;
+        $w = strftime('%u', $timestamp);
+        $ret['start'] = strtotime(date('Y-m-d 00:00:00', $timestamp - ($w - 1) * 86400));
+        $ret['end'] = strtotime(date('Y-m-d 23:59:59', $timestamp + (7 - $w) * 86400));
+        return $ret[$tag];
+    }
+
 	public static function xiaoshu($num){  //将数字转换成价格格式 12元->12.00元
 		$num=sprintf("%01.2f",$num);
 		return $num;

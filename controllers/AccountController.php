@@ -103,6 +103,12 @@ class AccountController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $username = Yii::$app->request->post('LoginForm')['username'];
             $student = Student::find()->where(['email' => $username])->orWhere(['username' => $username])->one();
+            if (!$student) {
+                Yii::$app->session->setFlash('error', '该账号不存在');
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            }
             /** @var $student Student */
             if ($student->status == Student::STATUS_NOACTIVE) {
                 Yii::$app->session->setFlash('success', "请去您的注册邮箱，激活账号!");
@@ -142,6 +148,12 @@ class AccountController extends Controller
         $model = new LoginForm('teacher');
         if ($model->load(Yii::$app->request->post())) {
             $teacher = Teacher::findOne(['email' => Yii::$app->request->post('LoginForm')['username']]);
+            if (!$teacher) {
+                Yii::$app->session->setFlash('error', '该账号不存在');
+                return $this->render('teacher-login', [
+                    'model' => $model,
+                ]);
+            }
             if ($teacher->status == Teacher::STATUS_ACTIVE) {  //未冻结
                 if ($model->teacherLogin()) {
                     return $this->redirect(['teacher/site/index']);
