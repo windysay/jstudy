@@ -23,6 +23,7 @@ $this->title="学员档案";
 			   <th>性别</th>
 			   <th>邮箱</th>
 			   <th>手机</th>
+                    <th>QQ</th>
 			   <th>Skype</th>
 			   <th>可用/购买上课券</th>
 			   <th>状态</th>
@@ -40,6 +41,7 @@ $this->title="学员档案";
 			      <td><?= $v['sex']==1?"男":"女"?></td>
 			      <td><?= $v['email'] ?></td>
 			      <td><?= $v['mobile'] ?></td>
+                    <td><?= $v['qq'] ?></td>
 			      <td><?= $v['skype'] ?></td>
 			      <td><?= $v['course_ticket'].'/'.$v['buy_ticket']?></td>
                     <td><?= $v['status'] == 1 ? "正常" : "冻结" ?></td>

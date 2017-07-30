@@ -152,6 +152,11 @@ foreach ($timeTable2 as $class) {
         $(document).ready(function () {
             $(".choosed").click(function () {
                 var id = $(this).attr("data-id");
+                var user_id = '<?= Yii::$app->user->id; ?>';
+                if (!user_id) {
+                    alert('请先登录哦!');
+                    return;
+                }
                 deleteAlertMoreZn(id, '确定预约此课程', 'ajax_bespeak_class');
             })
         });
@@ -167,9 +172,6 @@ foreach ($timeTable2 as $class) {
                     console.log(msg);
                     if (msg == 'guest') {
                         warn('请先登录', 0);
-                    } else if (msg == 'email_active') {
-                        var url = '<?= Url::toRoute('/site/index')?>';
-                        warnRedirect('选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱', 1, url);
                     } else if (msg == 'telephone_bind') {
                         var url = '<?= Url::toRoute('/student/site/bind-mobile')?>';
                         warnRedirect('选课前，请先绑定手机号码', 1, url);

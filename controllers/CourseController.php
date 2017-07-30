@@ -197,20 +197,10 @@ class CourseController extends Controller
             echo json_encode('no_ticket');
             exit();
         }
-        if (isset(Yii::$app->user->identity->status) && Yii::$app->user->identity->status == Student::STATUS_NOACTIVE) {
-//            Yii::$app->session->setFlash('success', '选课前，请先到邮箱激活账号, 邮件已发送到您注册邮箱');
-            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
-            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
-            SendCloud::send_mail(Yii::$app->user->identity->email, '激活iperapera账号', $content, '激活账号');
-            echo json_encode('email_active');
-            exit();
-            //            return $this->redirect('/site/index');
-        }
         if (empty(Yii::$app->user->identity->mobile)) {
             Yii::$app->session->setFlash('success', '选课前，请先绑定手机号码');
             echo json_encode('telephone_bind');
             exit();
-//            return $this->redirect('/student/site/bind-mobile');
         }
         $class = Timetable::find()->where('id=:id AND status=:status', [':id' => $id, ':status' => 1])->andWhere('start_time>' . time())->one();
         if ($class === null) {
@@ -227,19 +217,15 @@ class CourseController extends Controller
         $transaction = Yii::$app->db->beginTransaction();  //开始事务
         if ($class->save() && $student->save()) {
             $transaction->commit();
-            // 要发信息通知老师
-            $mail = $teacher->email;
-            $name = $teacher->name;
+            /** 邮件通知学生 */
             $date_time = date('m月d日  H:i', $class->start_time) . ' - ' . date('H:i', $class->end_time);
-            $subject = '日语口语在线学习-您有新的预约课程';//邮件标题
-            $html = '【日语口语在线学习】尊敬的 ' . $name . '，您好，您的课程已被预约，上课时间为' . $date_time . '。';
+            $subject = 'IPEARPERA-您有新的预约课程';//邮件标题
+            $html = '【IPERAPERA】亲爱的会员 ' . $student->username . '，您已成功预约' . $date_time . '的课程，请当日登录您的skype或QQ，不要迟到哦';
             $label = 'bespeak-class';   //邮件标签
-            $send_res = json_decode(SendCloud::send_mail($mail, $subject, $html, $label), true);
-            if ($send_res['message'] == 'success') {
-
-            } else {
-
-            }
+            SendCloud::send_mail($student->email, $subject, $html, $label);
+            /** 邮件通知教师 */
+            $html = '【IPERAPERA】' . $date_time . '授業の予約が入りました、生徒情報は講師ホームで確認下さい。当日は時間を間違えないようお願いします。';
+            SendCloud::send_mail($teacher->email, $subject, $html, $label);
             echo json_encode('success');
         } else {
             $transaction->rollBack();

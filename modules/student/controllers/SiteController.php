@@ -244,8 +244,8 @@ class SiteController extends Controller
     		$admin=Admin::find()->where(['grade'=>1])->one();
     		$to_email=$admin->email;
     		$name=$admin->admin_name?$admin->admin_name:'管理员';
-    		 $subject='日语口语在线学习-您收到新的意见或建议';//邮件标题
-    		$html='【日语口语在线学习】尊敬的'.$name.',您好，您收到新的意见或建议：'.$model->content;
+            $subject = 'IPEARPERA-您收到新的意见或建议';//邮件标题
+            $html = '【IPEARPERA】尊敬的' . $name . ',您好，您收到新的意见或建议：' . $model->content;
     		$label='admin-suggestion';   //邮件标签
     		$send_res=json_decode(SendCloud::send_mail($to_email, $subject, $html,$label),true);
     		if($send_res['message']=='success'){

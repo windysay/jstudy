@@ -31,7 +31,7 @@ class CourseController extends Controller
 		$this->getView()->registerCssFile(Yii::$app->homeUrl.'css/admin/goods.css');
 		$this->getView()->registerCssFile(Yii::$app->homeUrl.'css/admin/course.css');
 	}
-	 
+
 
  	public function behaviors(){
         return [
@@ -67,22 +67,22 @@ class CourseController extends Controller
     // 		foreach ($teachers as $k=>$v){
     // 			$teachers_id_arr[]=$v['id'];
     // 		}
-    		
+
     // 		$data=Timetable::find()->where(['in','teacher_id',$teachers_id_arr])->andWhere('start_time>'.time())->orderBy('start_time ASC');
     // 	}else{
     // 		$data=Timetable::find()->where('start_time>'.time())->orderBy('start_time ASC');
     // 	}
-    	
+
     // 	$pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'30']);
     // 	$classes = $data->offset($pages->offset)->limit($pages->limit)->all();
-		
+
     // 	return $this->render('index',[
     // 		'pages' => $pages,
     //     	'count'=>$data->count(),
     //     	'classes'=>$classes,
     //     ]);
     // }
-    
+
     public function actionIndex($keywords=null){
         if($keywords){
             $keywords=Html::encode($keywords);
@@ -95,10 +95,10 @@ class CourseController extends Controller
         }else{
             $data=Timetable::find()->where('start_time>'.time())->orderBy('start_time ASC');
         }
-        
+
         $pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'30']);
         $classes = $data->offset($pages->offset)->limit($pages->limit)->all();
-        
+
         return $this->render('index',[
             'pages' => $pages,
             'count'=>$data->count(),
@@ -108,7 +108,7 @@ class CourseController extends Controller
 
 
     public function actionHistoryRecord($s=null,$e=null)  //s是start_date e是end_date
-    {	
+    {
     	if($s&&$e){
     		$start_time=strtotime($s);
     		$end_time=strtotime($e)+3600*24-1;
@@ -132,7 +132,7 @@ class CourseController extends Controller
                                      ->orderBy('start_time DESC');
     	$pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'30']);
     	$classes = $data->offset($pages->offset)->limit($pages->limit)->all();
-		
+
     	return $this->render('history-record',[
     		'pages' => $pages,
         	'count'=>$data->count(),
@@ -140,10 +140,10 @@ class CourseController extends Controller
     		'start_time'=>$start_time,
     		'end_time'=>$end_time,
         ]);
-        
+
     }
     public function actionCompleted($s=null,$e=null)  //s是start_date e是end_date
-    {	
+    {
     	if($s&&$e){
     		$start_time=strtotime($s);
     		$end_time=strtotime($e)+3600*24-1;
@@ -161,20 +161,20 @@ class CourseController extends Controller
 				    		->andWhere('date>='.$start_time)
 				    		->andWhere('date<='.$end_time)
 				    		->orderBy('start_time DESC');
-    	
+
     	$pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'30']);
     	$classes = $data->offset($pages->offset)->limit($pages->limit)->all();
-		
-    	return $this->render('history-record',[
+
+        return $this->render('history-record',[
     		'pages' => $pages,
         	'count'=>$data->count(),
         	'classes'=>$classes,
         	'start_time'=>$start_time,
     		'end_time'=>$end_time,
         ]);
-        
+
     }
- 
+
     public function actionClassDetail($id,$bespeaked=null){    //某一节课的详细信息  $bespeaked表示要查询学生出来给老师选
     	$id=Html::encode($id);
     	$class=Timetable::find()->where('id=:id',[':id'=>$id])->one();
@@ -187,28 +187,30 @@ class CourseController extends Controller
     	}else{
     		$student=null;
     	}
-    	
-    	return $this->render('class-detail',[
+
+        return $this->render('class-detail',[
     			'class'=>$class,
     			'teacher'=>$teacher,
     			'student'=>$student,
     	]);
     }
-    public function actionBespeakClass($id,$stu=null){    //给某学生预约课 
+
+    public function actionBespeakClass($id, $stu = null)
+    {    //给某学生预约课
     	$id=Html::encode($id);
     	$class=Timetable::find()->where('id=:id',[':id'=>$id])->one();
     	if($class===null){
     		throw new NotFoundHttpException('您访问的页面不存在.');
     	}
     	if($class->status!=1){
-    		Yii::$app->session->setFlash('warn_message', "该课程不可预约");
+            Yii::$app->session->setFlash('error', "该课程不可预约");
     		return $this->redirect(['class-detail',
     				'id'=>$class->id,
     		]);
     	}
     	$teacher=Teacher::find()->where('id=:id',[':id'=>$class->teacher_id])->one();
-    	
-    	if($stu){   //如果有姓名
+
+        if($stu){   //如果有姓名
     		$keywords=Html::encode($stu);
     		$data=Student::find()->where(['like','realname',$keywords])->andWhere('status!=0')->orderBy('createtime DESC');
     	}else{
@@ -217,8 +219,8 @@ class CourseController extends Controller
     	}
     	$pages = new Pagination(['totalCount' =>$data->count(), 'pageSize' =>'30']);
     	$students = $data->offset($pages->offset)->limit($pages->limit)->all();
-    	
-    	return $this->render('bespeak-class',[
+
+        return $this->render('bespeak-class',[
     			'class'=>$class,
     			'teacher'=>$teacher,
     			'pages' => $pages,
@@ -231,25 +233,25 @@ class CourseController extends Controller
     	$id=Yii::$app->request->post('id');
     	$status=Yii::$app->request->post('status');
     	$student_id=Yii::$app->request->post('s');
-    	
-    	$class=Timetable::find()->where('id=:id',[':id'=>$id])->one();
+
+        $class=Timetable::find()->where('id=:id',[':id'=>$id])->one();
     	$teacher=Teacher::find()->where('id=:id',[':id'=>$class->teacher_id])->one();
 		if($class->student_id){
 			$student=Student::find()->where('id=:id',[':id'=>$class->student_id])->one();
 		}else{
 			$student=Student::find()->where('id=:id',[':id'=>$student_id])->one();
 		}
-    	
-    	$old_status=$class->status;   //课程更改之前的状态
+
+        $old_status=$class->status;   //课程更改之前的状态
     	$old_student_id=$class->student_id;
-    	
-    	$transation=Yii::$app->db->beginTransaction();
+
+        $transation=Yii::$app->db->beginTransaction();
     	if($class->status==2&&$class->student_id){   //这节课有学生已经预约了  要归还学生的上课券
     		$student->scenario='course_ticket';
     		$student->course_ticket+=1;
     		$student->save();
-    		
-    		$cancel=new TimetableCancel();
+
+            $cancel=new TimetableCancel();
     		$cancel->timetable_id=$class->id;
     		$cancel->teacher_id=$class->teacher_id;
     		$cancel->student_id=$class->student_id;
@@ -258,41 +260,41 @@ class CourseController extends Controller
     		$cancel->end_time=$class->end_time;
     		$cancel->type=2;
     		$cancel->save();
-    		
-    		
-    	}
+
+
+        }
     	$class->status=$status;
     	$class->student_id=$student_id;
     	if($class->save()){
     		$transation->commit();
     		// 这里判断  如果和学生有关联  要发信息通知学生
     		if($old_status==2&&$class->status==1){   //这节课被之前有预约  但是现在被取消了
-    			$mail1=$teacher['email'];
-    			$name1=$teacher['name'];
+                $mail1 = $teacher->email;
+                $name1 = $teacher->name;
     			$date_time1=date('m月d日  H:i',$class->start_time).' - '.date('H:i',$class->end_time);
-    			$subject1='日语口语在线学习-您的预约课程被取消';//邮件标题
-    			$html1='【日语口语在线学习】尊敬的 '.$name1.'，您'.$date_time1.'的课程已被取消预约，特此通知。';
+                $subject1 = 'IPEARPERA-您的预约课程被取消';//邮件标题
+                $html1 = '【IPERAPERA】' . $date_time1 . '授業のキャンセルが入りました、詳しくは講師ホームで確認下さい。（生徒による当日キャンセルの場合のみ20%時給が発生します。）';
     			$label1='cancel-class';   //邮件标签
-    			
-    			$mail2=$student['email'];
+
+                $mail2 = $student->email;
     			$name2=Student::memberName($student);
     			$date_time2=date('m月d日  H:i',$class->start_time).' - '.date('H:i',$class->end_time);
-    			$subject2='日语口语在线学习-您的预约课程被取消';//邮件标题
-    			$html2='【日语口语在线学习】尊敬的 '.$name2.'，您'.$date_time2.'的课程已被取消预约，特此通知。';
+                $subject2 = 'IPEARPERA-您的预约课程被取消';//邮件标题
+                $html2 = '【IPEARPERA】尊敬的 ' . $name2 . '，您' . $date_time2 . '的课程已被取消预约，特此通知。';
     			$label2='cancel-class';   //邮件标签
     		}else if($old_status==1&&$class->status==2){  //这节课现在 被预约了
     			$mail1=$teacher['email'];
     			$name1=$teacher['name'];
     			$date_time1=date('m月d日  H:i',$class->start_time).' - '.date('H:i',$class->end_time);
-    			$subject1='日语口语在线学习-您有新的预约课程';//邮件标题
-    			$html1='【日语口语在线学习】尊敬的'.$name1.'，您好，您的课程已被预约，上课时间为'.$date_time1.'。';
+                $subject1 = 'IPEARPERA-您有新的预约课程';//邮件标题
+                $html1 = '【IPERAPERA】' . $date_time1 . '授業の予約が入りました、生徒情報は講師ホームで確認下さい。当日は時間を間違えないようお願いします。';
     			$label1='bespeak-class';   //邮件标签
-    			 
-    			$mail2=$student['email'];
+
+                $mail2=$student['email'];
     			$name2=Student::memberName($student);
     			$date_time2=date('m月d日  H:i',$class->start_time).' - '.date('H:i',$class->end_time);
-    			$subject2='日语口语在线学习-您有新的预约课程';//邮件标题
-    			$html2='【日语口语在线学习】尊敬的 '.$name2.'，您好，您的课程已预约，上课时间为'.$date_time2.'。';
+                $subject2 = 'IPEARPERA-您有新的预约课程';//邮件标题
+                $html2 = '【IPERAPERA】亲爱的会员 ' . $name2 . '，您已成功预约' . $date_time2 . '的课程，请当日登录您的skype或QQ，不要迟到哦';
     			$label2='bespeak-class';   //邮件标签
     		}
     		$send_res1=json_decode(SendCloud::send_mail($mail1, $subject1, $html1,$label1),true);
@@ -304,7 +306,7 @@ class CourseController extends Controller
     		echo 0;
     	}
     }
- 
+
 
     public function actionSetmeal(){
     	$course=CourseMeal::find()->asArray()->all();
@@ -322,7 +324,7 @@ class CourseController extends Controller
     	return $this->render('_course_form',['model'=>$model]);
     }
 
-    
+
     public function actionAddCourse(){
     	$model=new CourseMeal();
     	if ($model->load(Yii::$app->request->post())&&$model->save()) {
@@ -330,7 +332,7 @@ class CourseController extends Controller
     	}
     	return $this->render('_course_form',['model'=>$model]);
     }
-    
+
     public function actionAjaxDeleteCourse(){
     	$id=Html::encode($_POST['id']);
     	$model=CourseMeal::findOne($id);
@@ -340,7 +342,7 @@ class CourseController extends Controller
     	if($model->delete())
     		echo 1;
     }
-    
+
     public function actionAjaxUploadCoverurl() {
     	$file=$_POST['data'];
     	if($file){
@@ -351,6 +353,6 @@ class CourseController extends Controller
     	}
     	echo  json_encode($image->imageFolder);
     }
-    
-    
+
+
 }

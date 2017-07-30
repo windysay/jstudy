@@ -47,10 +47,6 @@ $this->title = "生徒信息";
                 <p class="head pull-left">QQ</p>
                 <p class="info pull-left"><?= $student['qq'] ?: '--' ?></p>
             </div>
-            <div class="info_div clearfix">
-                <p class="head pull-left">微信</p>
-                <p class="info pull-left"><?= $student['wechat'] ?: '--' ?></p>
-            </div>
         </div>
     </div>
 </div><!-- site-index -->

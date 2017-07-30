@@ -212,7 +212,7 @@ class CourseController extends Controller
     		$start_time=strtotime($first_day);
     		$end_time=time();
     	}
-    	$data=Timetable::find()->where('teacher_id=:teacher_id',[':teacher_id'=>1])
+        $data = Timetable::find()->where('teacher_id=:teacher_id', [':teacher_id' => $teacher_id])
 						    	->andWhere('start_time>='.$start_time)
 						    	->andWhere('end_time<='.$end_time)
                                 ->andWhere('status!=5')

@@ -104,7 +104,15 @@ class AccountController extends Controller
             $username = Yii::$app->request->post('LoginForm')['username'];
             $student = Student::find()->where(['email' => $username])->orWhere(['username' => $username])->one();
             /** @var $student Student */
-            if ($student->status == Student::STATUS_DISABLE) {
+            if ($student->status == Student::STATUS_NOACTIVE) {
+                Yii::$app->session->setFlash('success', "请去您的注册邮箱，激活账号!");
+                $url = Url::toRoute(['/account/active', 'user_id' => $student->id]);
+                $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => $student->id]) . "'>" . base64_encode($url) . "</a>";
+                SendCloud::send_mail($student->email, '激活iperapera账号', $content, '激活账号');
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            } else if (empty($student->email)) {
                 Yii::$app->session->setFlash('error', "你的账户已被冻结!");
                 return $this->render('login', [
                     'model' => $model,
@@ -183,7 +191,7 @@ class AccountController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $user = $model;
             Yii::$app->user->login($user, 3600 * 24 * 30);
-            Yii::$app->session->setFlash('register_success', "恭喜，注册成功,赠送您一张上课券!");
+            Yii::$app->session->setFlash('success', "恭喜，注册成功,赠送您一张上课券!");
             return $this->redirect(['student/site/index']);
         } else {
             return $this->render('register2', [
@@ -203,10 +211,9 @@ class AccountController extends Controller
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $user = $model;
-            Yii::$app->user->login($user, 3600 * 24 * 30);
-            Yii::$app->session->setFlash('register_success', "请去您的注册邮箱，激活账号!");
-            $url = Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]);
-            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => Yii::$app->user->id]) . "'>" . base64_encode($url) . "</a>";
+            Yii::$app->session->setFlash('success', "请去您的注册邮箱，激活账号!");
+            $url = Url::toRoute(['/account/active', 'user_id' => $user->id]);
+            $content = "用户注册需要邮箱激活，请点击链接进行激活 <a href='" . Url::toRoute(['/account/active', 'user_id' => $user->id]) . "'>" . base64_encode($url) . "</a>";
             SendCloud::send_mail($user->email, '激活iperapera账号', $content, '激活账号');
             return $this->redirect(['student/site/index']);
         } else {
@@ -228,10 +235,11 @@ class AccountController extends Controller
         $user->status = Student::STATUS_ACTIVE;
         $user->scenario = 'status';
         if ($user->save(false)) {
-            Yii::$app->session->setFlash('register_success', "恭喜，账号激活成功,赠送您一张上课券!");
+            Yii::$app->session->setFlash('success', "恭喜，账号激活成功,赠送您一张上课券!");
+            Yii::$app->user->login($user, 3600 * 24 * 30);
             return $this->redirect(['student/site/index']);
         } else {
-            Yii::$app->session->setFlash('register_success', "账号激活失败");
+            Yii::$app->session->setFlash('success', "账号激活失败");
             return $this->redirect(['/site/index']);
         }
     }

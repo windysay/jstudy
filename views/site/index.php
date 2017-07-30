@@ -109,7 +109,7 @@ $this->registerJsFile(Yii::$app->homeUrl.'widget/bootstrap-datetimepicker-master
 									      <img data-src="holder.js/300x200" alt="..." src="<?= Yii::$app->homeUrl.'images/'.$v['headimg']  ?>">
 									      <div class="caption">
 									         <h4 class="teacher_name"><?= $v['name'] ?></h4>
-									         <p class="teacher_comment"><?= $v['comment'] ?></p>
+									         <p class="teacher_comment hide"><?= $v['comment'] ?></p>
 									      </div>
 									</a>
 						     	</li>

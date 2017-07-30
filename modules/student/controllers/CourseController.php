@@ -175,8 +175,8 @@ class CourseController extends Controller
     		$mail=$teacher->email;
     		$name=$teacher->name;
     		$date_time=date('m月d日  H:i',$class->start_time).' - '.date('H:i',$class->end_time);
-    		$subject='日语口语在线学习-您的预约课程被取消';//邮件标题
-    		$html='【日语口语在线学习】尊敬的'.$name.',您好，您'.$date_time.'的课程已被取消预约，特此通知。';
+            $subject = 'IPEARPERA-您的预约课程被取消';//邮件标题
+            $html = '【IPERAPERA】' . $date_time . '授業のキャンセルが入りました、詳しくは講師ホームで確認下さい。（生徒による当日キャンセルの場合のみ20%時給が発生します。）';
     		$label='cancel-class';   //邮件标签
     		$send_res=json_decode(SendCloud::send_mail($mail, $subject, $html,$label),true);
     		if($send_res['message']=='success'){
