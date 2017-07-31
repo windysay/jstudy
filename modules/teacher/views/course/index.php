@@ -274,9 +274,7 @@ foreach ($timeTable2 as $class) {
             success: function (msg) {//如果调用php成功,注意msg是返回的对象，这个你可以自定义
                 if (msg == 1) {
                     warn('保存成功', 1);
-                    $(".now_choosed").addClass("choosed");
-                    $(".now_choosed").removeClass("now_choosed");
-                    $(".no_choose").remove();
+                    history.go(0);
                 } else {
                     warn('保存失败', 0);
                     $(".week" + week_id + " .confirm_btn").removeClass('disabled');
